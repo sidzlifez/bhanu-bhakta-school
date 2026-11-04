@@ -1,0 +1,46 @@
+{
+  "albums": [
+    {
+      "title": "Bhanu Jayanti Cultural Dance & Recitation",
+      "category": "School Foundation & Bhanu Jayanti Events",
+      "date": "2026",
+      "description": "Students performing traditional cultural programmes and poetry recitations on Bhanu Jayanti.",
+      "image": "https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=800&q=80"
+    },
+    {
+      "title": "Annual School Sports Meet & Track Events",
+      "category": "Annual Sports",
+      "date": "2026",
+      "description": "House teams competing in track and field events followed by medal distribution.",
+      "image": "https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=800&q=80"
+    },
+    {
+      "title": "Independence Day Flag Hoisting & March Past",
+      "category": "National Celebrations",
+      "date": "2026",
+      "description": "Flag hoisting ceremony and patriotic songs presented by students in Nongmensong.",
+      "image": "https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?auto=format&fit=crop&w=800&q=80"
+    },
+    {
+      "title": "Teachers' Day Felicitation Programme",
+      "category": "Teachers' Day & Children's Day",
+      "date": "2026",
+      "description": "Senior students organizing cultural tributes in honour of the school faculty.",
+      "image": "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=800&q=80"
+    },
+    {
+      "title": "Emotional Regulation Workshop",
+      "category": "Student Programmes",
+      "date": "2026",
+      "description": "Interactive student workshop and community service session for Class IX and Class X.",
+      "image": "https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=800&q=80"
+    },
+    {
+      "title": "Morning Assembly & Classroom Learning",
+      "category": "Campus & Classroom Life",
+      "date": "2026",
+      "description": "Daily disciplined morning assembly and interactive classroom sessions.",
+      "image": "https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=800&q=80"
+    }
+  ]
+}

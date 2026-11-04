@@ -1,0 +1,109 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "images"
+public_folder: "/images"
+
+collections:
+  - name: "notices"
+    label: "School Notices & Events"
+    folder: "content"
+    create: false
+    delete: false
+    files:
+      - file: "content/notices.json"
+        label: "Noticeboard Feed"
+        name: "notices"
+        fields:
+          - { label: "Notice Items", name: "items", widget: "list", fields: [
+              { label: "Notice Title", name: "title", widget: "string" },
+              { label: "Posting Date", name: "date", widget: "string" },
+              { label: "Category", name: "category", widget: "select", options: ["Exam & Results", "School Events", "Holiday Notice", "Parent-Teacher Meeting", "Admissions & Scholarships"] },
+              { label: "Pin as Important / Urgent", name: "important", widget: "boolean", required: false },
+              { label: "Event Date / Time Note", name: "eventDate", widget: "string", required: false },
+              { label: "Summary / Details", name: "summary", widget: "text" },
+              { label: "Attachment / Circular Link", name: "attachment", widget: "string", required: false }
+            ] }
+
+  - name: "gallery"
+    label: "Photo Gallery"
+    folder: "content"
+    create: false
+    delete: false
+    files:
+      - file: "content/gallery.json"
+        label: "Event Photo Albums"
+        name: "gallery"
+        fields:
+          - { label: "Photo Albums", name: "albums", widget: "list", fields: [
+              { label: "Photo Title", name: "title", widget: "string" },
+              { label: "Event Category (Select or type new)", name: "category", widget: "string", hint: "Core options: School Foundation & Bhanu Jayanti Events, Annual Sports, National Celebrations, Teachers' Day & Children's Day, Student Programmes, Campus & Classroom Life" },
+              { label: "Year / Date", name: "date", widget: "string" },
+              { label: "Photo Description", name: "description", widget: "text", required: false },
+              { label: "Photo Image", name: "image", widget: "image" }
+            ] }
+
+  - name: "staff"
+    label: "About & Staff Directory"
+    folder: "content"
+    create: false
+    delete: false
+    files:
+      - file: "content/staff.json"
+        label: "Faculty & History Photos"
+        name: "staff"
+        fields:
+          - { label: "Historic Campus Photo (Est. 1962)", name: "oldPhoto", widget: "image", required: false }
+          - { label: "Present Campus Photo", name: "newPhoto", widget: "image", required: false }
+          - { label: "Teaching Staff List", name: "teachers", widget: "list", fields: [
+              { label: "Full Name", name: "name", widget: "string" },
+              { label: "Designation", name: "designation", widget: "string" },
+              { label: "Subject Taught", name: "subject", widget: "string" },
+              { label: "Teacher Photo", name: "photo", widget: "image" }
+            ] },
+          - { label: "Managing Committee", name: "committee", widget: "list", fields: [
+              { label: "Member Name", name: "name", widget: "string" },
+              { label: "Role / Title", name: "role", widget: "string" }
+            ] }
+
+  - name: "academics"
+    label: "Academics & Syllabus PDFs"
+    folder: "content"
+    create: false
+    delete: false
+    files:
+      - file: "content/academics.json"
+        label: "Syllabus & Routine Documents"
+        name: "academics"
+        fields:
+          - { label: "Documents List", name: "documents", widget: "list", fields: [
+              { label: "Wing", name: "wing", widget: "select", options: ["pre-primary", "primary", "upper-primary", "secondary"] },
+              { label: "Type", name: "type", widget: "select", options: ["Syllabus", "Routine"] },
+              { label: "Document Title", name: "title", widget: "string" },
+              { label: "Session / Year", name: "updated", widget: "string" },
+              { label: "PDF File / Link", name: "file", widget: "string" }
+            ] }
+
+  - name: "results"
+    label: "Student Marksheets"
+    folder: "content"
+    create: false
+    delete: false
+    files:
+      - file: "content/results.json"
+        label: "Online Result Records"
+        name: "results"
+        fields:
+          - { label: "Student Result Records", name: "results", widget: "list", fields: [
+              { label: "Class", name: "className", widget: "select", options: ["Nursery", "KG", "Class I", "Class II", "Class III", "Class IV", "Class V", "Class VI", "Class VII", "Class VIII", "Class IX", "Class X"] },
+              { label: "Roll Number", name: "roll", widget: "string" },
+              { label: "Student Full Name", name: "name", widget: "string" },
+              { label: "Exam Title", name: "examTitle", widget: "string" },
+              { label: "Status", name: "status", widget: "select", options: ["PASSED", "PROMOTED", "COMPARTMENTAL"] },
+              { label: "Subjects & Marks", name: "subjects", widget: "list", fields: [
+                  { label: "Subject Name", name: "name", widget: "string" },
+                  { label: "Full Marks", name: "fullMarks", widget: "number" },
+                  { label: "Marks Obtained", name: "marksObtained", widget: "number" }
+                ] }
+            ] }

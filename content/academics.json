@@ -1,0 +1,12 @@
+{
+  "documents": [
+    { "wing": "pre-primary", "type": "Syllabus", "title": "Nursery & KG Annual Activity & Learning Syllabus", "updated": "2026", "file": "#" },
+    { "wing": "pre-primary", "type": "Routine", "title": "Pre-Primary Terminal Assessment Schedule", "updated": "2026", "file": "#" },
+    { "wing": "primary", "type": "Syllabus", "title": "Classes I to V Complete MBOSE Syllabus PDF", "updated": "2026", "file": "#" },
+    { "wing": "primary", "type": "Routine", "title": "Primary Section Half-Yearly & Final Exam Routine", "updated": "2026", "file": "#" },
+    { "wing": "upper-primary", "type": "Syllabus", "title": "Classes VI to VIII Mathematics, Science & Humanities Syllabus", "updated": "2026", "file": "#" },
+    { "wing": "upper-primary", "type": "Routine", "title": "Upper Primary Terminal Examination Routine", "updated": "2026", "file": "#" },
+    { "wing": "secondary", "type": "Syllabus", "title": "Class IX & X MBOSE Board Syllabus (All Subjects)", "updated": "2026", "file": "#" },
+    { "wing": "secondary", "type": "Routine", "title": "Class IX & X Selection / Terminal Exam Routine (80 Marks)", "updated": "2026", "file": "#" }
+  ]
+}

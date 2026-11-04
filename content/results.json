@@ -1,0 +1,19 @@
+{
+  "results": [
+    {
+      "className": "Class IX",
+      "roll": "1",
+      "name": "Aarav Thapa",
+      "examTitle": "Annual / Selection Examination",
+      "status": "PASSED",
+      "subjects": [
+        { "name": "English", "fullMarks": 100, "marksObtained": 78 },
+        { "name": "Mathematics", "fullMarks": 100, "marksObtained": 88 },
+        { "name": "Science & Technology", "fullMarks": 100, "marksObtained": 82 },
+        { "name": "Social Science", "fullMarks": 100, "marksObtained": 75 },
+        { "name": "Second Language (Nepali/Hindi)", "fullMarks": 100, "marksObtained": 84 },
+        { "name": "Health & Physical Education", "fullMarks": 100, "marksObtained": 80 }
+      ]
+    }
+  ]
+}
