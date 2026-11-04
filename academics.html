@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Academics, Syllabus & Results | Bhanu Bhakta Nepali Proceeding Sec. School</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: { 700: '#1d4ed8', 800: '#1e3a8a', 900: '#172554' },
+            gold: { 500: '#f59e0b', 600: '#d97706' }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-slate-50 text-slate-800 flex flex-col min-h-screen font-sans">
+
+  <!-- Top Utility Bar -->
+  <div class="bg-navy-900 text-slate-200 text-xs sm:text-sm py-2 px-4 border-b border-navy-800 print:hidden">
+    <div class="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-2">
+      <div class="flex flex-wrap items-center gap-4">
+        <span class="font-semibold text-gold-500">UDISE: 17060206809 (Est. 1962 • Govt. Aided)</span>
+        <span class="hidden sm:inline"><i class="fa-solid fa-location-dot text-gold-500 mr-1"></i> Nongmensong, Shillong - 793019</span>
+        <a href="tel:9856701460" class="hover:text-gold-500 transition"><i class="fa-solid fa-phone text-gold-500 mr-1"></i> +91 9856701460</a>
+      </div>
+      <div class="flex items-center gap-4">
+        <span class="hidden md:inline"><i class="fa-regular fa-clock text-gold-500 mr-1"></i> Hours: 8:45 AM – 2:20 PM</span>
+        <a href="/admin/" class="bg-navy-800 hover:bg-gold-600 text-white px-2.5 py-1 rounded text-xs font-medium transition">
+          <i class="fa-solid fa-lock mr-1"></i> Staff Login
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header & Navigation -->
+  <header class="bg-white shadow-md sticky top-0 z-50 print:hidden">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+      <a href="index.html" class="flex items-center gap-3 sm:gap-4">
+        <img src="images/logo.png" alt="School Badge" onerror="this.src='https://placehold.co/80x80/1e3a8a/f59e0b?text=BBNPSS'" class="w-14 h-14 sm:w-16 sm:h-16 object-contain rounded-full border-2 border-gold-500 p-0.5" />
+        <div>
+          <h1 class="text-base sm:text-xl md:text-2xl font-bold text-navy-900 leading-tight">
+            Bhanu Bhakta Nepali Proceeding Sec. School
+          </h1>
+          <p class="text-xs sm:text-sm font-semibold text-gold-600 italic tracking-wide">
+            "Service Before Self" • Nursery to Class X (MBOSE)
+          </p>
+        </div>
+      </a>
+
+      <button id="mobile-menu-btn" class="lg:hidden text-navy-900 text-2xl focus:outline-none p-2">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+
+      <nav class="hidden lg:flex items-center gap-1 font-medium text-sm">
+        <a href="index.html" class="px-3 py-2 rounded-md text-navy-900 hover:bg-slate-100 transition">Home</a>
+        <a href="about.html" class="px-3 py-2 rounded-md text-navy-900 hover:bg-slate-100 transition">About & Staff</a>
+        <a href="academics.html" class="px-3 py-2 rounded-md bg-navy-800 text-white">Academics & PDFs</a>
+        <a href="notices.html" class="px-3 py-2 rounded-md text-navy-900 hover:bg-slate-100 transition">News & Events</a>
+        <a href="gallery.html" class="px-3 py-2 rounded-md text-navy-900 hover:bg-slate-100 transition">Photo Gallery</a>
+        <a href="contact.html" class="px-3 py-2 rounded-md text-navy-900 hover:bg-slate-100 transition">Contact Us</a>
+      </nav>
+    </div>
+
+    <nav id="mobile-menu" class="hidden lg:hidden bg-navy-900 text-white px-4 pt-2 pb-4 space-y-1 border-t border-navy-800">
+      <a href="index.html" class="block px-3 py-2 rounded hover:bg-navy-800">Home</a>
+      <a href="about.html" class="block px-3 py-2 rounded hover:bg-navy-800">About & Staff</a>
+      <a href="academics.html" class="block px-3 py-2 rounded bg-gold-600 font-semibold">Academics & PDFs</a>
+      <a href="notices.html" class="block px-3 py-2 rounded hover:bg-navy-800">News & Events</a>
+      <a href="gallery.html" class="block px-3 py-2 rounded hover:bg-navy-800">Photo Gallery</a>
+      <a href="contact.html" class="block px-3 py-2 rounded hover:bg-navy-800">Contact Us</a>
+    </nav>
+  </header>
+
+  <!-- Page Banner -->
+  <section class="bg-navy-900 text-white py-12 px-4 border-b-4 border-gold-500 print:hidden">
+    <div class="max-w-7xl mx-auto">
+      <span class="text-xs font-bold uppercase tracking-widest text-gold-500">MBOSE Curriculum • Nursery to Class X</span>
+      <h2 class="text-3xl sm:text-4xl font-extrabold mt-1">Academics, Syllabus PDFs & Exam Portal</h2>
+      <p class="text-slate-300 mt-2 max-w-2xl text-sm sm:text-base">
+        Select your child's wing below to download official Syllabus PDFs, Examination Routines, and check term results online.
+      </p>
+    </div>
+  </section>
+
+  <!-- 4-Tab Academic Downloads Section -->
+  <section id="syllabus" class="max-w-7xl mx-auto px-4 py-12 print:hidden">
+    <div id="routines" class="mb-6">
+      <span class="text-xs font-bold uppercase tracking-widest text-gold-600">Academic Downloads</span>
+      <h3 class="text-2xl sm:text-3xl font-bold text-navy-900 mt-1">Syllabus & Exam Routine PDFs</h3>
+    </div>
+
+    <!-- 4 Wing Tabs -->
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 mb-8" id="wing-tabs">
+      <button onclick="switchTab('pre-primary')" id="tab-pre-primary" class="wing-tab-btn p-4 rounded-xl border-2 text-left transition bg-navy-800 text-white border-navy-800 shadow-sm">
+        <span class="block text-xs uppercase tracking-wider text-gold-500 font-bold">Wing 1</span>
+        <span class="font-bold text-sm sm:text-base">Pre-Primary (Nursery – KG)</span>
+      </button>
+
+      <button onclick="switchTab('primary')" id="tab-primary" class="wing-tab-btn p-4 rounded-xl border-2 text-left transition bg-white text-navy-900 border-slate-200 hover:border-navy-800">
+        <span class="block text-xs uppercase tracking-wider text-gold-600 font-bold">Wing 2</span>
+        <span class="font-bold text-sm sm:text-base">Primary (Class I – V)</span>
+      </button>
+
+      <button onclick="switchTab('upper-primary')" id="tab-upper-primary" class="wing-tab-btn p-4 rounded-xl border-2 text-left transition bg-white text-navy-900 border-slate-200 hover:border-navy-800">
+        <span class="block text-xs uppercase tracking-wider text-gold-600 font-bold">Wing 3</span>
+        <span class="font-bold text-sm sm:text-base">Upper Primary (Class VI – VIII)</span>
+      </button>
+
+      <button onclick="switchTab('secondary')" id="tab-secondary" class="wing-tab-btn p-4 rounded-xl border-2 text-left transition bg-white text-navy-900 border-slate-200 hover:border-navy-800">
+        <span class="block text-xs uppercase tracking-wider text-gold-600 font-bold">Wing 4</span>
+        <span class="font-bold text-sm sm:text-base">Secondary (Class IX – X)</span>
+      </button>
+    </div>
+
+    <!-- Active Tab Content Area -->
+    <div class="grid md:grid-cols-2 gap-8">
+      <!-- Column 1: Syllabus PDFs -->
+      <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
+        <div class="flex items-center gap-3 pb-4 mb-4 border-b border-slate-100">
+          <div class="w-10 h-10 rounded-lg bg-gold-500/15 text-gold-600 flex items-center justify-center text-lg">
+            <i class="fa-solid fa-book-open"></i>
+          </div>
+          <div>
+            <h4 class="font-bold text-navy-900 text-lg">Syllabus PDFs</h4>
+            <p class="text-xs text-slate-500" id="syllabus-wing-label">Showing Pre-Primary (Nursery – KG)</p>
+          </div>
+        </div>
+        <div id="syllabus-list" class="space-y-3">
+          <!-- Populated dynamically -->
+        </div>
+      </div>
+
+      <!-- Column 2: Exam Routine PDFs -->
+      <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
+        <div class="flex items-center gap-3 pb-4 mb-4 border-b border-slate-100">
+          <div class="w-10 h-10 rounded-lg bg-navy-800/10 text-navy-800 flex items-center justify-center text-lg">
+            <i class="fa-regular fa-calendar-check"></i>
+          </div>
+          <div>
+            <h4 class="font-bold text-navy-900 text-lg">Examination Routines</h4>
+            <p class="text-xs text-slate-500" id="routine-wing-label">Showing Pre-Primary (Nursery – KG)</p>
+          </div>
+        </div>
+        <div id="routine-list" class="space-y-3">
+          <!-- Populated dynamically -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Online Student Marksheet / Result Checker Section -->
+  <section id="results" class="max-w-7xl mx-auto px-4 pb-16">
+    <div class="bg-white rounded-2xl shadow-sm border-2 border-navy-800 overflow-hidden">
+      <div class="bg-navy-900 text-white p-6 sm:p-8 print:hidden">
+        <span class="text-xs font-bold uppercase tracking-widest text-gold-500">Online Examination Portal</span>
+        <h3 class="text-2xl sm:text-3xl font-bold mt-1">Student Marksheet & Result Checker</h3>
+        <p class="text-slate-300 text-sm mt-1">
+          Select the Class and enter the Roll Number to view or print the student's terminal examination marksheet. (Try Demo: <strong>Class IX</strong>, Roll No: <strong>1</strong>)
+        </p>
+
+        <form id="result-form" class="mt-6 grid sm:grid-cols-3 gap-4">
+          <div>
+            <label class="block text-xs font-semibold uppercase tracking-wider text-gold-500 mb-1">Select Class</label>
+            <select id="result-class" required class="w-full rounded-lg bg-navy-800 border border-navy-700 text-white px-4 py-2.5 text-sm focus:outline-none focus:border-gold-500">
+              <option value="Nursery">Nursery</option>
+              <option value="KG">KG</option>
+              <option value="Class I">Class I</option>
+              <option value="Class II">Class II</option>
+              <option value="Class III">Class III</option>
+              <option value="Class IV">Class IV</option>
+              <option value="Class V">Class V</option>
+              <option value="Class VI">Class VI</option>
+              <option value="Class VII">Class VII</option>
+              <option value="Class VIII">Class VIII</option>
+              <option value="Class IX" selected>Class IX</option>
+              <option value="Class X">Class X</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs font-semibold uppercase tracking-wider text-gold-500 mb-1">Roll Number</label>
+            <input type="text" id="result-roll" placeholder="e.g. 1" required class="w-full rounded-lg bg-navy-800 border border-navy-700 text-white px-4 py-2.5 text-sm focus:outline-none focus:border-gold-500" />
+          </div>
+          <div class="flex items-end">
+            <button type="submit" class="w-full bg-gold-500 hover:bg-gold-600 text-navy-900 font-bold py-2.5 px-6 rounded-lg transition text-sm">
+              <i class="fa-solid fa-magnifying-glass mr-1"></i> Search Marksheet
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Result Output Container -->
+      <div id="result-output" class="p-6 sm:p-8 hidden">
+        <!-- Populated dynamically when student searches -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-navy-900 text-slate-300 mt-auto border-t-4 border-gold-500 print:hidden">
+    <div class="max-w-7xl mx-auto px-4 py-10 grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div class="sm:col-span-2">
+        <h4 class="text-white font-bold text-lg mb-1">Bhanu Bhakta Nepali Proceeding Secondary School</h4>
+        <p class="text-gold-500 text-xs font-semibold mb-3">Est. 1962 • Govt. Aided • UDISE: 17060206809</p>
+        <p class="text-sm text-slate-400 leading-relaxed max-w-md">
+          Providing quality education from Nursery to Class X in Nongmensong, Shillong under the MBOSE curriculum.
+        </p>
+      </div>
+      <div>
+        <h4 class="text-white font-bold text-base mb-3">Quick Links</h4>
+        <ul class="space-y-2 text-sm">
+          <li><a href="index.html" class="hover:text-gold-500 transition">Home Page</a></li>
+          <li><a href="about.html" class="hover:text-gold-500 transition">About & Faculty Directory</a></li>
+          <li><a href="notices.html" class="hover:text-gold-500 transition">School Notices & Events</a></li>
+          <li><a href="gallery.html" class="hover:text-gold-500 transition">Event Photo Gallery</a></li>
+          <li><a href="contact.html" class="hover:text-gold-500 transition">Contact Us</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-white font-bold text-base mb-3">Contact & Timings</h4>
+        <ul class="space-y-2 text-sm">
+          <li><i class="fa-solid fa-location-dot text-gold-500 mr-2"></i> Nongmensong, Shillong - 793019</li>
+          <li><i class="fa-solid fa-phone text-gold-500 mr-2"></i> +91 9856701460</li>
+          <li><i class="fa-solid fa-envelope text-gold-500 mr-2"></i> bhanubhaktaupss@gmail.com</li>
+          <li><i class="fa-regular fa-clock text-gold-500 mr-2"></i> 8:45 AM – 2:20 PM</li>
+        </ul>
+      </div>
+    </div>
+    <div class="bg-navy-950/60 py-4 px-4 text-center text-xs text-slate-400">
+      © <span id="year"></span> Bhanu Bhakta Nepali Proceeding Secondary School (UDISE: 17060206809). All Rights Reserved.
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    document.getElementById('mobile-menu-btn').addEventListener('click', () => {
+      document.getElementById('mobile-menu').classList.toggle('hidden');
+    });
+
+    const wingNames = {
+      'pre-primary': 'Pre-Primary (Nursery – KG)',
+      'primary': 'Primary (Class I – V)',
+      'upper-primary': 'Upper Primary (Class VI – VIII)',
+      'secondary': 'Secondary (Class IX – X)'
+    };
+
+    // Default Academic PDFs (Managed via /admin in Step 3)
+    let academicDocuments = [
+      { wing: "pre-primary", type: "Syllabus", title: "Nursery & KG Annual Activity & Learning Syllabus", updated: "2026", file: "#" },
+      { wing: "pre-primary", type: "Routine", title: "Pre-Primary Terminal Assessment Schedule", updated: "2026", file: "#" },
+      { wing: "primary", type: "Syllabus", title: "Classes I to V Complete MBOSE Syllabus PDF", updated: "2026", file: "#" },
+      { wing: "primary", type: "Routine", title: "Primary Section Half-Yearly & Final Exam Routine", updated: "2026", file: "#" },
+      { wing: "upper-primary", type: "Syllabus", title: "Classes VI to VIII Mathematics, Science & Humanities Syllabus", updated: "2026", file: "#" },
+      { wing: "upper-primary", type: "Routine", title: "Upper Primary Terminal Examination Routine", updated: "2026", file: "#" },
+      { wing: "secondary", type: "Syllabus", title: "Class IX & X MBOSE Board Syllabus (All Subjects)", updated: "2026", file: "#" },
+      { wing: "secondary", type: "Routine", title: "Class IX & X Selection / Terminal Exam Routine (80 Marks)", updated: "2026", file: "#" }
+    ];
+
+    // Default Sample Student Result Data (Managed via /admin in Step 3)
+    let studentResults = [
+      {
+        className: "Class IX",
+        roll: "1",
+        name: "Aarav Thapa",
+        examTitle: "Annual / Selection Examination",
+        status: "PASSED",
+        subjects: [
+          { name: "English", fullMarks: 100, marksObtained: 78 },
+          { name: "Mathematics", fullMarks: 100, marksObtained: 88 },
+          { name: "Science & Technology", fullMarks: 100, marksObtained: 82 },
+          { name: "Social Science", fullMarks: 100, marksObtained: 75 },
+          { name: "Second Language (Nepali/Hindi)", fullMarks: 100, marksObtained: 84 },
+          { name: "Health & Physical Education", fullMarks: 100, marksObtained: 80 }
+        ]
+      }
+    ];
+
+    let activeWing = 'pre-primary';
+
+    function switchTab(wingKey) {
+      activeWing = wingKey;
+      document.querySelectorAll('.wing-tab-btn').forEach(btn => {
+        btn.className = "wing-tab-btn p-4 rounded-xl border-2 text-left transition bg-white text-navy-900 border-slate-200 hover:border-navy-800";
+      });
+      const activeBtn = document.getElementById('tab-' + wingKey);
+      if (activeBtn) {
+        activeBtn.className = "wing-tab-btn p-4 rounded-xl border-2 text-left transition bg-navy-800 text-white border-navy-800 shadow-sm";
+      }
+
+      document.getElementById('syllabus-wing-label').textContent = 'Showing ' + wingNames[wingKey];
+      document.getElementById('routine-wing-label').textContent = 'Showing ' + wingNames[wingKey];
+
+      renderDocuments();
+    }
+
+    function renderDocuments() {
+      const syllabusDocs = academicDocuments.filter(d => d.wing === activeWing && d.type === 'Syllabus');
+      const routineDocs = academicDocuments.filter(d => d.wing === activeWing && d.type === 'Routine');
+
+      const renderList = (items) => {
+        if (!items.length) {
+          return `<p class="text-xs text-slate-400 italic py-4">No PDF uploaded for this section yet.</p>`;
+        }
+        return items.map(doc => `
+          <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-between gap-4">
+            <div>
+              <h5 class="font-bold text-navy-900 text-sm">${doc.title}</h5>
+              <p class="text-xs text-slate-500 mt-0.5">Session: ${doc.updated}</p>
+            </div>
+            <a href="${doc.file}" target="_blank" download class="shrink-0 bg-navy-800 hover:bg-gold-500 hover:text-navy-900 text-white text-xs font-bold px-3.5 py-2 rounded-lg transition flex items-center gap-1.5">
+              <i class="fa-solid fa-file-pdf"></i> Download
+            </a>
+          </div>
+        `).join('');
+      };
+
+      document.getElementById('syllabus-list').innerHTML = renderList(syllabusDocs);
+      document.getElementById('routine-list').innerHTML = renderList(routineDocs);
+    }
+
+    // Load live JSON data if present
+    async function initAcademics() {
+      try {
+        const res = await fetch('content/academics.json');
+        if (res.ok) {
+          const data = await res.json();
+          if (data.documents && data.documents.length) academicDocuments = data.documents;
+        }
+      } catch (e) {}
+
+      try {
+        const resResults = await fetch('content/results.json');
+        if (resResults.ok) {
+          const data = await resResults.json();
+          if (data.results && data.results.length) studentResults = data.results;
+        }
+      } catch (e) {}
+
+      switchTab('pre-primary');
+    }
+
+    // Marksheet Search Handler
+    document.getElementById('result-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const selectedClass = document.getElementById('result-class').value.trim();
+      const enteredRoll = document.getElementById('result-roll').value.trim();
+      const out = document.getElementById('result-output');
+      out.classList.remove('hidden');
+
+      const record = studentResults.find(
+        r => r.className.toLowerCase() === selectedClass.toLowerCase() && String(r.roll).trim() === enteredRoll
+      );
+
+      if (!record) {
+        out.innerHTML = `
+          <div class="p-4 rounded-xl bg-red-50 border border-red-200 text-red-700 text-sm">
+            <i class="fa-solid fa-circle-exclamation mr-1"></i>
+            No marksheet found for <strong>${selectedClass}</strong>, Roll Number <strong>${enteredRoll}</strong>. Please verify the details or contact the school office.
+          </div>
+        `;
+        return;
+      }
+
+      const totalFull = record.subjects.reduce((acc, s) => acc + Number(s.fullMarks), 0);
+      const totalObtained = record.subjects.reduce((acc, s) => acc + Number(s.marksObtained), 0);
+      const percentage = totalFull ? ((totalObtained / totalFull) * 100).toFixed(2) : 0;
+
+      out.innerHTML = `
+        <div class="border-2 border-navy-900 rounded-xl p-6 bg-white">
+          <div class="text-center border-b-2 border-navy-900 pb-4 mb-4">
+            <h4 class="text-lg sm:text-xl font-extrabold text-navy-900 uppercase">Bhanu Bhakta Nepali Proceeding Secondary School</h4>
+            <p class="text-xs text-slate-600">Nongmensong, Shillong - 793019 • Govt. Aided • UDISE: 17060206809</p>
+            <span class="inline-block mt-2 bg-gold-500 text-navy-900 text-xs font-bold px-3 py-1 rounded uppercase">${record.examTitle} Statement of Marks</span>
+          </div>
+
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 text-sm mb-6 bg-slate-50 p-4 rounded-lg border border-slate-200">
+            <div><span class="text-slate-500 text-xs block">Student Name</span><strong class="text-navy-900">${record.name}</strong></div>
+            <div><span class="text-slate-500 text-xs block">Class</span><strong class="text-navy-900">${record.className}</strong></div>
+            <div><span class="text-slate-500 text-xs block">Roll Number</span><strong class="text-navy-900">${record.roll}</strong></div>
+            <div><span class="text-slate-500 text-xs block">Result Status</span><strong class="text-emerald-700">${record.status}</strong></div>
+          </div>
+
+          <div class="overflow-x-auto">
+            <table class="w-full text-sm border-collapse border border-slate-300">
+              <thead>
+                <tr class="bg-navy-900 text-white">
+                  <th class="border border-slate-300 px-3 py-2 text-left">Subject</th>
+                  <th class="border border-slate-300 px-3 py-2 text-center">Full Marks</th>
+                  <th class="border border-slate-300 px-3 py-2 text-center">Marks Obtained</th>
+                </tr>
+              </thead>
+              <tbody>
+                ${record.subjects.map(sub => `
+                  <tr class="border-b border-slate-200">
+                    <td class="border border-slate-300 px-3 py-2 font-medium text-navy-900">${sub.name}</td>
+                    <td class="border border-slate-300 px-3 py-2 text-center">${sub.fullMarks}</td>
+                    <td class="border border-slate-300 px-3 py-2 text-center font-bold">${sub.marksObtained}</td>
+                  </tr>
+                `).join('')}
+              </tbody>
+              <tfoot>
+                <tr class="bg-slate-100 font-bold text-navy-900">
+                  <td class="border border-slate-300 px-3 py-2">Grand Total & Percentage</td>
+                  <td class="border border-slate-300 px-3 py-2 text-center">${totalFull}</td>
+                  <td class="border border-slate-300 px-3 py-2 text-center">${totalObtained} (${percentage}%)</td>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+
+          <div class="mt-6 flex justify-between items-center print:hidden">
+            <p class="text-xs text-slate-500 italic">Computer-generated statement of marks.</p>
+            <button onclick="window.print()" class="bg-navy-800 hover:bg-navy-900 text-white text-xs font-bold px-4 py-2 rounded-lg transition">
+              <i class="fa-solid fa-print mr-1"></i> Print Marksheet
+            </button>
+          </div>
+        </div>
+      `;
+    });
+
+    initAcademics();
+  </script>
+</body>
+</html>

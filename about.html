@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About & Staff Directory | Bhanu Bhakta Nepali Proceeding Sec. School</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: { 700: '#1d4ed8', 800: '#1e3a8a', 900: '#172554' },
+            gold: { 500: '#f59e0b', 600: '#d97706' }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-slate-50 text-slate-800 flex flex-col min-h-screen font-sans">
+
+  <!-- Top Utility Bar -->
+  <div class="bg-navy-900 text-slate-200 text-xs sm:text-sm py-2 px-4 border-b border-navy-800">
+    <div class="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-2">
+      <div class="flex flex-wrap items-center gap-4">
+        <span class="font-semibold text-gold-500">UDISE: 17060206809 (Est. 1962 • Govt. Aided)</span>
+        <span class="hidden sm:inline"><i class="fa-solid fa-location-dot text-gold-500 mr-1"></i> Nongmensong, Shillong - 793019</span>
+        <a href="tel:9856701460" class="hover:text-gold-500 transition"><i class="fa-solid fa-phone text-gold-500 mr-1"></i> +91 9856701460</a>
+      </div>
+      <div class="flex items-center gap-4">
+        <span class="hidden md:inline"><i class="fa-regular fa-clock text-gold-500 mr-1"></i> Hours: 8:45 AM – 2:20 PM</span>
+        <a href="/admin/" class="bg-navy-800 hover:bg-gold-600 text-white px-2.5 py-1 rounded text-xs font-medium transition">
+          <i class="fa-solid fa-lock mr-1"></i> Staff Login
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header & Navigation -->
+  <header class="bg-white shadow-md sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+      <a href="index.html" class="flex items-center gap-3 sm:gap-4">
+        <img src="images/logo.png" alt="School Badge" onerror="this.src='https://placehold.co/80x80/1e3a8a/f59e0b?text=BBNPSS'" class="w-14 h-14 sm:w-16 sm:h-16 object-contain rounded-full border-2 border-gold-500 p-0.5" />
+        <div>
+          <h1 class="text-base sm:text-xl md:text-2xl font-bold text-navy-900 leading-tight">
+            Bhanu Bhakta Nepali Proceeding Sec. School
+          </h1>
+          <p class="text-xs sm:text-sm font-semibold text-gold-600 italic tracking-wide">
+            "Service Before Self" • Est. 1962 • Govt. Aided School
+          </p>
+        </div>
+      </a>
+
+      <button id="mobile-menu-btn" class="lg:hidden text-navy-900 text-2xl focus:outline-none p-2">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+
+      <nav class="hidden lg:flex items-center gap-1 font-medium text-sm">
+        <a href="index.html" class="px-3 py-2 rounded-md text-navy-900 hover:bg-slate-100 transition">Home</a>
+        <a href="about.html" class="px-3 py-2 rounded-md bg-navy-800 text-white">About & Staff</a>
+        <a href="academics.html" class="px-3 py-2 rounded-md text-navy-900 hover:bg-slate-100 transition">Academics & PDFs</a>
+        <a href="notices.html" class="px-3 py-2 rounded-md text-navy-900 hover:bg-slate-100 transition">News & Events</a>
+        <a href="gallery.html" class="px-3 py-2 rounded-md text-navy-900 hover:bg-slate-100 transition">Photo Gallery</a>
+        <a href="contact.html" class="px-3 py-2 rounded-md text-navy-900 hover:bg-slate-100 transition">Contact Us</a>
+      </nav>
+    </div>
+
+    <nav id="mobile-menu" class="hidden lg:hidden bg-navy-900 text-white px-4 pt-2 pb-4 space-y-1 border-t border-navy-800">
+      <a href="index.html" class="block px-3 py-2 rounded hover:bg-navy-800">Home</a>
+      <a href="about.html" class="block px-3 py-2 rounded bg-gold-600 font-semibold">About & Staff</a>
+      <a href="academics.html" class="block px-3 py-2 rounded hover:bg-navy-800">Academics & PDFs</a>
+      <a href="notices.html" class="block px-3 py-2 rounded hover:bg-navy-800">News & Events</a>
+      <a href="gallery.html" class="block px-3 py-2 rounded hover:bg-navy-800">Photo Gallery</a>
+      <a href="contact.html" class="block px-3 py-2 rounded hover:bg-navy-800">Contact Us</a>
+    </nav>
+  </header>
+
+  <!-- Page Banner -->
+  <section class="bg-navy-900 text-white py-12 px-4 border-b-4 border-gold-500">
+    <div class="max-w-7xl mx-auto">
+      <div class="flex flex-wrap items-center gap-2 text-xs font-bold uppercase tracking-widest text-gold-500 mb-2">
+        <span>Established 1962</span>
+        <span>•</span>
+        <span>Government Aided Institution</span>
+        <span>•</span>
+        <span>UDISE Code: 17060206809</span>
+      </div>
+      <h2 class="text-3xl sm:text-4xl font-extrabold">Our Heritage, Administration & Faculty</h2>
+      <p class="text-slate-300 mt-2 max-w-2xl text-sm sm:text-base">
+        Over six decades of educational service in Nongmensong, Shillong, guided by our motto "Service Before Self."
+      </p>
+    </div>
+  </section>
+
+  <!-- School History & Key Facts -->
+  <section class="max-w-7xl mx-auto px-4 py-12">
+    <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 sm:p-10">
+      <div class="grid lg:grid-cols-3 gap-8 items-center mb-10">
+        <div class="lg:col-span-2">
+          <span class="text-xs font-bold uppercase tracking-widest text-gold-600">Our Journey Since 1962</span>
+          <h3 class="text-2xl sm:text-3xl font-bold text-navy-900 mt-1 mb-4">
+            History of Bhanu Bhakta Nepali Proceeding Secondary School
+          </h3>
+          <p class="text-slate-600 leading-relaxed mb-4">
+            Established in <strong>1962</strong> by visionary community elders and educationists in Nongmensong, Shillong, <strong>Bhanu Bhakta Nepali Proceeding Secondary School</strong> began with a noble mission to bring accessible education to children of the locality and surrounding areas.
+          </p>
+          <p class="text-slate-600 leading-relaxed">
+            Recognized as a <strong>Government Aided School</strong> (UDISE Code: <strong>17060206809</strong>), the institution has steadily grown from its humble beginnings into a full-fledged proceeding secondary school offering classes from <strong>Nursery to Class X</strong> under the Meghalaya Board of School Education (MBOSE). Generation after generation, our school has remained true to its founding motto: <em>"Service Before Self."</em>
+          </p>
+        </div>
+
+        <!-- Official School Profile Card -->
+        <div class="bg-navy-900 text-white p-6 rounded-xl border-l-4 border-gold-500 space-y-3 text-sm">
+          <h4 class="text-gold-500 font-bold uppercase tracking-wider text-xs">Official School Profile</h4>
+          <div class="flex justify-between py-2 border-b border-navy-800">
+            <span class="text-slate-300">Year of Establishment</span>
+            <span class="font-bold text-white">1962</span>
+          </div>
+          <div class="flex justify-between py-2 border-b border-navy-800">
+            <span class="text-slate-300">UDISE Code</span>
+            <span class="font-bold text-gold-500">17060206809</span>
+          </div>
+          <div class="flex justify-between py-2 border-b border-navy-800">
+            <span class="text-slate-300">Management Status</span>
+            <span class="font-bold text-white">Government Aided</span>
+          </div>
+          <div class="flex justify-between py-2 border-b border-navy-800">
+            <span class="text-slate-300">Board Affiliation</span>
+            <span class="font-bold text-white">MBOSE</span>
+          </div>
+          <div class="flex justify-between pt-2">
+            <span class="text-slate-300">Classes Offered</span>
+            <span class="font-bold text-white">Nursery to Class X</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Old Photo vs New Photo Showcase -->
+      <div class="pt-8 border-t border-slate-200">
+        <div class="text-center mb-6">
+          <span class="text-xs font-bold uppercase tracking-widest text-gold-600">Then & Now</span>
+          <h4 class="text-xl sm:text-2xl font-bold text-navy-900 mt-1">Our School Campus Through the Years</h4>
+          <p class="text-xs sm:text-sm text-slate-500 mt-1">A visual glimpse of our growth from our early years to our present-day campus.</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-6">
+          <!-- Old School Photo Card -->
+          <div class="bg-slate-50 rounded-xl overflow-hidden border border-slate-200 shadow-sm">
+            <div class="relative h-64 sm:h-72 bg-slate-200">
+              <img id="school-old-img" src="images/school-old.jpg" alt="Old Photo of Bhanu Bhakta School" onerror="this.src='https://placehold.co/800x500/334155/f8fafc?text=Old+School+Building+(Place+images/school-old.jpg)'" class="w-full h-full object-cover" />
+              <span class="absolute top-3 left-3 bg-navy-900/90 text-gold-500 text-xs font-bold px-3 py-1 rounded-full">
+                <i class="fa-solid fa-clock-rotate-left mr-1"></i> The Early Years (Est. 1962)
+              </span>
+            </div>
+            <div class="p-4">
+              <h5 class="font-bold text-navy-900 text-base">Our Historic Campus</h5>
+              <p id="school-old-caption" class="text-xs sm:text-sm text-slate-600 mt-1">
+                The early school building that laid the foundation for decades of learning and community service in Nongmensong.
+              </p>
+            </div>
+          </div>
+
+          <!-- New School Photo Card -->
+          <div class="bg-slate-50 rounded-xl overflow-hidden border border-slate-200 shadow-sm">
+            <div class="relative h-64 sm:h-72 bg-slate-200">
+              <img id="school-new-img" src="images/school-new.jpg" alt="Present Photo of Bhanu Bhakta School" onerror="this.src='https://placehold.co/800x500/1e3a8a/f59e0b?text=Present+School+Campus+(Place+images/school-new.jpg)'" class="w-full h-full object-cover" />
+              <span class="absolute top-3 left-3 bg-gold-500 text-navy-900 text-xs font-bold px-3 py-1 rounded-full">
+                <i class="fa-solid fa-school mr-1"></i> Present Campus
+              </span>
+            </div>
+            <div class="p-4">
+              <h5 class="font-bold text-navy-900 text-base">Bhanu Bhakta Nepali Proceeding Sec. School Today</h5>
+              <p id="school-new-caption" class="text-xs sm:text-sm text-slate-600 mt-1">
+                Our modern campus serving students from Nursery to Class X with dedicated classrooms and vibrant academic life.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Teaching Staff Directory -->
+  <section class="max-w-7xl mx-auto px-4 pb-12">
+    <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-8 gap-4">
+      <div>
+        <span class="text-xs font-bold uppercase tracking-widest text-gold-600">Our Educators</span>
+        <h3 class="text-2xl sm:text-3xl font-bold text-navy-900 mt-1">Teaching Faculty & Staff Directory</h3>
+      </div>
+      <p class="text-xs sm:text-sm text-slate-500">
+        Managed easily from your <strong>/admin</strong> dashboard
+      </p>
+    </div>
+
+    <!-- Staff Cards Grid (Photo, Full Name, Designation, Subject Taught) -->
+    <div id="staff-grid" class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      <!-- Dynamically populated by JavaScript below -->
+    </div>
+  </section>
+
+  <!-- Managing Committee Section -->
+  <section class="max-w-7xl mx-auto px-4 pb-16">
+    <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 sm:p-8">
+      <span class="text-xs font-bold uppercase tracking-widest text-gold-600">Governance</span>
+      <h3 class="text-xl sm:text-2xl font-bold text-navy-900 mt-1 mb-4">School Managing Committee</h3>
+      <p class="text-sm text-slate-600 mb-6">
+        As a Government Aided institution, our School Managing Committee oversees institutional development, academic standards, and community welfare.
+      </p>
+      <div id="committee-grid" class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <!-- Dynamically populated by JavaScript below -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-navy-900 text-slate-300 mt-auto border-t-4 border-gold-500">
+    <div class="max-w-7xl mx-auto px-4 py-10 grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div class="sm:col-span-2">
+        <h4 class="text-white font-bold text-lg mb-1">Bhanu Bhakta Nepali Proceeding Secondary School</h4>
+        <p class="text-gold-500 text-xs font-semibold mb-3">Est. 1962 • Govt. Aided • UDISE: 17060206809</p>
+        <p class="text-sm text-slate-400 leading-relaxed max-w-md">
+          Guided by our motto "Service Before Self," nurturing students from Nursery to Class X in Nongmensong, Shillong.
+        </p>
+      </div>
+      <div>
+        <h4 class="text-white font-bold text-base mb-3">Quick Links</h4>
+        <ul class="space-y-2 text-sm">
+          <li><a href="index.html" class="hover:text-gold-500 transition">Home Page</a></li>
+          <li><a href="academics.html#routines" class="hover:text-gold-500 transition">Exam Routines</a></li>
+          <li><a href="academics.html#syllabus" class="hover:text-gold-500 transition">Syllabus PDFs</a></li>
+          <li><a href="academics.html#results" class="hover:text-gold-500 transition">Student Marksheet Checker</a></li>
+          <li><a href="gallery.html" class="hover:text-gold-500 transition">Event Photo Gallery</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-white font-bold text-base mb-3">Contact & Timings</h4>
+        <ul class="space-y-2 text-sm">
+          <li><i class="fa-solid fa-location-dot text-gold-500 mr-2"></i> Nongmensong, Shillong - 793019</li>
+          <li><i class="fa-solid fa-phone text-gold-500 mr-2"></i> +91 9856701460</li>
+          <li><i class="fa-solid fa-envelope text-gold-500 mr-2"></i> bhanubhaktaupss@gmail.com</li>
+          <li><i class="fa-regular fa-clock text-gold-500 mr-2"></i> 8:45 AM – 2:20 PM</li>
+        </ul>
+      </div>
+    </div>
+    <div class="bg-navy-950/60 py-4 px-4 text-center text-xs text-slate-400">
+      © <span id="year"></span> Bhanu Bhakta Nepali Proceeding Secondary School (UDISE: 17060206809). All Rights Reserved.
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    document.getElementById('mobile-menu-btn').addEventListener('click', () => {
+      document.getElementById('mobile-menu').classList.toggle('hidden');
+    });
+
+    // Default Sample Staff Data (Editable via /admin dashboard in Step 3)
+    const fallbackStaff = [
+      {
+        name: "Headmaster / Principal",
+        designation: "Headmaster",
+        subject: "School Administration & Academics",
+        photo: "images/headmaster.jpg"
+      },
+      {
+        name: "Senior Assistant Teacher",
+        designation: "Assistant Teacher (Secondary)",
+        subject: "Mathematics (Classes VI – X)",
+        photo: "images/teacher-1.jpg"
+      },
+      {
+        name: "Assistant Teacher",
+        designation: "Assistant Teacher (Secondary)",
+        subject: "Science & Environmental Studies",
+        photo: "images/teacher-2.jpg"
+      },
+      {
+        name: "Assistant Teacher",
+        designation: "Assistant Teacher (Upper Primary)",
+        subject: "English & Social Studies",
+        photo: "images/teacher-3.jpg"
+      }
+    ];
+
+    const fallbackCommittee = [
+      { name: "President", role: "Managing Committee President" },
+      { name: "Secretary", role: "Managing Committee Secretary" },
+      { name: "Headmaster", role: "Ex-Officio Member" },
+      { name: "Teacher Representative", role: "Committee Member" }
+    ];
+
+    async function loadStaffDirectory() {
+      let staffList = fallbackStaff;
+      let committeeList = fallbackCommittee;
+
+      try {
+        const res = await fetch('content/staff.json');
+        if (res.ok) {
+          const data = await res.json();
+          if (data.teachers && data.teachers.length) staffList = data.teachers;
+          if (data.committee && data.committee.length) committeeList = data.committee;
+          if (data.oldPhoto) document.getElementById('school-old-img').src = data.oldPhoto;
+          if (data.newPhoto) document.getElementById('school-new-img').src = data.newPhoto;
+        }
+      } catch (e) {}
+
+      // Render Teacher Cards (Photo, Full Name, Designation, Subject Taught)
+      document.getElementById('staff-grid').innerHTML = staffList.map(t => `
+        <div class="bg-white rounded-xl overflow-hidden shadow-sm border border-slate-200 hover:shadow-md transition flex flex-col">
+          <div class="h-56 bg-slate-100 overflow-hidden border-b border-slate-100">
+            <img src="${t.photo}" alt="${t.name}" onerror="this.src='https://placehold.co/400x400/1e3a8a/f59e0b?text=' + encodeURIComponent('${t.name}')" class="w-full h-full object-cover object-top" />
+          </div>
+          <div class="p-4 flex-1 flex flex-col justify-between">
+            <div>
+              <span class="inline-block bg-gold-500/15 text-gold-600 text-xs font-bold px-2.5 py-0.5 rounded-full mb-1.5">
+                ${t.designation}
+              </span>
+              <h4 class="font-bold text-navy-900 text-base">${t.name}</h4>
+            </div>
+            <div class="mt-3 pt-3 border-t border-slate-100 text-xs text-slate-600 flex items-center gap-2">
+              <i class="fa-solid fa-book-open-reader text-navy-800"></i>
+              <span><strong>Subject:</strong> ${t.subject}</span>
+            </div>
+          </div>
+        </div>
+      `).join('');
+
+      // Render Managing Committee Cards
+      document.getElementById('committee-grid').innerHTML = committeeList.map(c => `
+        <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-navy-800 text-gold-500 flex items-center justify-center font-bold shrink-0">
+            <i class="fa-solid fa-user-tie"></i>
+          </div>
+          <div>
+            <h5 class="font-bold text-navy-900 text-sm">${c.name}</h5>
+            <p class="text-xs text-slate-500">${c.role}</p>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    loadStaffDirectory();
+  </script>
+</body>
+</html>
