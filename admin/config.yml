@@ -2,6 +2,17 @@ backend:
   name: git-gateway
   branch: main
 
+media_library:
+  name: cloudinary
+  config:
+    cloud_name: "YOUR_CLOUDINARY_CLOUD_NAME"
+    api_key: "YOUR_CLOUDINARY_API_KEY"
+
+media_folder: "images"
+public_folder: "/images"
+  name: git-gateway
+  branch: main
+
 media_folder: "images"
 public_folder: "/images"
 
