@@ -5,7 +5,7 @@ backend:
 media_library:
   name: cloudinary
   config:
-    cloud_name: "YOUR_CLOUDINARY_CLOUD_NAME"
+    cloud_name: "zacmwmmw"
     api_key: "YOUR_CLOUDINARY_API_KEY"
 
 media_folder: "images"
