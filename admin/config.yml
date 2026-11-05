@@ -6,7 +6,7 @@ media_library:
   name: cloudinary
   config:
     cloud_name: "zacmwmmw"
-    api_key: "YOUR_CLOUDINARY_API_KEY"
+    api_key: "531786519281394"
 
 media_folder: "images"
 public_folder: "/images"
