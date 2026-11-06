@@ -3,34 +3,42 @@
   "newPhoto": "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=800&q=80",
   "teachers": [
     {
-      "name": "Headmaster / Principal",
-      "designation": "Headmaster",
-      "subject": "School Administration & Academics",
-      "photo": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80"
+      "name": "Headmistress / Principal",
+      "designation": "Headmistress",
+      "subject": "English",
+      "photo": ""
     },
     {
-      "name": "Senior Assistant Teacher",
-      "designation": "Assistant Teacher (Secondary)",
-      "subject": "Mathematics (Classes VI – X)",
-      "photo": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80"
+      "name": "Lalit Thapa",
+      "designation": "Senior Assistant Teacher",
+      "subject": "Mathematics, Computer (Classes IV – X)",
+      "photo": ""
     },
     {
-      "name": "Assistant Teacher",
-      "designation": "Assistant Teacher (Secondary)",
-      "subject": "Science & Environmental Studies",
-      "photo": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80"
+      "name": "Binita Limbu",
+      "designation": "Senior Assistant Teacher",
+      "subject": "Science Science, English (ClassesVI - X)",
+      "photo": ""
     },
     {
-      "name": "Assistant Teacher",
-      "designation": "Assistant Teacher (Upper Primary)",
-      "subject": "English & Social Studies",
-      "photo": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&q=80"
+      "name": "Priya Marak",
+      "designation": "Senior Assistant Teacher",
+      "subject": "Social Studies, AHPL (I, II, III, VIII, IX, X)",
+      "photo": ""
     }
   ],
   "committee": [
-    { "name": "President", "role": "Managing Committee President" },
-    { "name": "Secretary", "role": "Managing Committee Secretary" },
-    { "name": "Headmaster", "role": "Ex-Officio Member" },
-    { "name": "Teacher Representative", "role": "Committee Member" }
+    {
+      "name": "Kunjan Lama",
+      "role": "Managing Committee President"
+    },
+    {
+      "name": "Bonita Chettri",
+      "role": "Managing Committee Secretary"
+    },
+    {
+      "name": "Kavita Thakuri",
+      "role": "Committee Member Teacher Representative"
+    }
   ]
 }
