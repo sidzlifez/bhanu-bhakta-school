@@ -3,11 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Bhanu Bhakta Nepali Proceeding Secondary School | Shillong</title>
+  <title>Bhanu Bhakta Nepali Proceeding Sec. School | Shillong</title>
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- FontAwesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <!-- Netlify Identity Widget (Handles email invites & password resets) -->
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
   <script>
     tailwind.config = {
       theme: {
@@ -35,7 +37,7 @@
     .animate-ticker {
       display: inline-block;
       white-space: nowrap;
-      animation: ticker 65s linear infinite;
+      animation: ticker 50s linear infinite; /* Slower 50s speed for comfortable reading */
     }
     .animate-ticker:hover {
       animation-play-state: paused;
@@ -44,16 +46,27 @@
 </head>
 <body class="bg-slate-50 text-slate-800 flex flex-col min-h-screen font-sans">
 
-  <!-- Top Utility Bar -->
+  <!-- Top Utility Bar with UDISE & Est. 1962 -->
   <div class="bg-navy-900 text-slate-200 text-xs sm:text-sm py-2 px-4 border-b border-navy-800">
     <div class="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-2">
       <div class="flex flex-wrap items-center gap-4">
-        <span><i class="fa-solid fa-location-dot text-gold-500 mr-1"></i> Nongmensong, Shillong - 793019</span>
-        <a href="tel:9856701460" class="hover:text-gold-500 transition"><i class="fa-solid fa-phone text-gold-500 mr-1"></i> +91 9856701460</a>
-        <a href="mailto:bhanubhaktaupss@gmail.com" class="hidden md:inline hover:text-gold-500 transition"><i class="fa-solid fa-envelope text-gold-500 mr-1"></i> bhanubhaktaupss@gmail.com</a>
+        <span class="font-bold text-gold-500">
+          <i class="fa-solid fa-certificate mr-1"></i> UDISE: 17060206809 (Est. 1962 • Govt. Aided)
+        </span>
+        <span class="hidden sm:inline">
+          <i class="fa-solid fa-location-dot text-gold-500 mr-1"></i> Nongmensong, Shillong - 793019
+        </span>
+        <a href="tel:9856701460" class="hover:text-gold-500 transition">
+          <i class="fa-solid fa-phone text-gold-500 mr-1"></i> +91 9856701460
+        </a>
+        <a href="mailto:bhanubhaktaupss@gmail.com" class="hidden xl:inline hover:text-gold-500 transition">
+          <i class="fa-solid fa-envelope text-gold-500 mr-1"></i> bhanubhaktaupss@gmail.com
+        </a>
       </div>
       <div class="flex items-center gap-4">
-        <span class="hidden sm:inline"><i class="fa-regular fa-clock text-gold-500 mr-1"></i> Hours: 8:45 AM – 2:20 PM</span>
+        <span class="hidden md:inline">
+          <i class="fa-regular fa-clock text-gold-500 mr-1"></i> Hours: 8:45 AM – 2:20 PM
+        </span>
         <a href="/admin/" class="bg-navy-800 hover:bg-gold-600 text-white px-2.5 py-1 rounded text-xs font-medium transition">
           <i class="fa-solid fa-lock mr-1"></i> Staff Login
         </a>
@@ -72,7 +85,7 @@
             Bhanu Bhakta Nepali Proceeding Sec. School
           </h1>
           <p class="text-xs sm:text-sm font-semibold text-gold-600 italic tracking-wide">
-            "Service Before Self" • Nursery to Class X (MBOSE)
+            "Service Before Self" • Est. 1962 • Govt. Aided • UDISE: 17060206809
           </p>
         </div>
       </a>
@@ -104,14 +117,14 @@
     </nav>
   </header>
 
-  <!-- Live Notice Ticker -->
+  <!-- Live Notice Ticker (50s comfortable speed, pauses on hover) -->
   <div class="bg-gold-500 text-navy-900 text-sm font-semibold flex items-center overflow-hidden border-b border-gold-600">
     <div class="bg-navy-900 text-gold-500 px-4 py-2 z-10 flex items-center gap-2 shrink-0 uppercase tracking-wider text-xs sm:text-sm font-bold">
       <i class="fa-solid fa-bullhorn"></i> Latest News
     </div>
     <div class="overflow-hidden w-full py-2">
       <div id="notice-ticker" class="animate-ticker">
-        Welcome to the official website of Bhanu Bhakta Nepali Proceeding Secondary School, Nongmensong, Shillong • School Timings: 8:45 AM to 2:20 PM • Check the Academics page for latest Exam Routines and Syllabus PDFs.
+        Welcome to Bhanu Bhakta Nepali Proceeding Secondary School, Nongmensong, Shillong (Est. 1962 • Govt. Aided • UDISE: 17060206809) • School Timings: 8:45 AM to 2:20 PM • Check the Academics page for latest Exam Routines and Syllabus PDFs.
       </div>
     </div>
   </div>
@@ -122,13 +135,13 @@
     <div class="max-w-7xl mx-auto relative z-10 text-center md:text-left flex flex-col md:flex-row items-center justify-between gap-8">
       <div class="max-w-2xl">
         <span class="inline-block bg-gold-500 text-navy-900 text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-4">
-          Nursery to Class X • MBOSE Curriculum
+          Est. 1962 • Govt. Aided • UDISE: 17060206809 • Nursery to Class X
         </span>
         <h2 class="text-3xl sm:text-5xl font-extrabold leading-tight mb-4">
           Shaping Minds with Discipline, Knowledge & <span class="text-gold-500">Service Before Self</span>
         </h2>
         <p class="text-slate-200 text-base sm:text-lg mb-8">
-          Empowering students in Nongmensong, Shillong with quality education, strong moral values, and holistic co-curricular development.
+          Empowering students in Nongmensong, Shillong with quality MBOSE education, strong moral values, and holistic co-curricular development since 1962.
         </p>
         <div class="flex flex-wrap justify-center md:justify-start gap-4">
           <a href="notices.html" class="bg-gold-500 hover:bg-gold-600 text-navy-900 font-bold px-6 py-3 rounded-lg shadow transition">
@@ -193,12 +206,12 @@
       <!-- General School Introduction -->
       <div class="bg-white p-6 sm:p-8 rounded-2xl shadow-sm border border-slate-200 flex flex-col justify-between">
         <div>
-          <span class="text-xs font-bold uppercase tracking-widest text-gold-600">About Our School</span>
+          <span class="text-xs font-bold uppercase tracking-widest text-gold-600">Established 1962 • Govt. Aided Institution</span>
           <h2 class="text-2xl sm:text-3xl font-bold text-navy-900 mt-1 mb-4">
-            Welcome to Bhanu Bhakta Nepali Proceeding Secondary School
+            Welcome to Bhanu Bhakta Nepali Proceeding Sec. School
           </h2>
           <p class="text-slate-600 leading-relaxed mb-4">
-            Located in the heart of Nongmensong, Shillong, Bhanu Bhakta Nepali Proceeding Secondary School is committed to providing accessible, high-quality education from <strong>Nursery to Class X</strong> aligned with the Meghalaya Board of School Education (MBOSE) curriculum.
+            Established in <strong>1962</strong> in the heart of Nongmensong, Shillong, Bhanu Bhakta Nepali Proceeding Secondary School (UDISE Code: <strong>17060206809</strong>) is a Government Aided institution committed to providing accessible, high-quality education from <strong>Nursery to Class X</strong> aligned with the Meghalaya Board of School Education (MBOSE) curriculum.
           </p>
           <p class="text-slate-600 leading-relaxed mb-6">
             Guided by our motto, <em>"Service Before Self,"</em> our dedicated faculty and Managing Committee work closely with parents to nurture academic excellence, character formation, cultural pride, and community responsibility in every student.
@@ -206,16 +219,16 @@
         </div>
         <div class="grid grid-cols-3 gap-4 pt-4 border-t border-slate-100 text-center">
           <div>
-            <p class="text-xl sm:text-2xl font-extrabold text-navy-800">Nursery–X</p>
-            <p class="text-xs text-slate-500">Classes Offered</p>
+            <p class="text-xl sm:text-2xl font-extrabold text-navy-800">Est. 1962</p>
+            <p class="text-xs text-slate-500">Govt. Aided</p>
           </div>
           <div>
             <p class="text-xl sm:text-2xl font-extrabold text-gold-600">MBOSE</p>
             <p class="text-xs text-slate-500">Curriculum</p>
           </div>
           <div>
-            <p class="text-xl sm:text-2xl font-extrabold text-navy-800">100%</p>
-            <p class="text-xs text-slate-500">Dedicated Faculty</p>
+            <p class="text-xl sm:text-2xl font-extrabold text-navy-800">Nursery–X</p>
+            <p class="text-xs text-slate-500">Classes Offered</p>
           </div>
         </div>
       </div>
@@ -286,8 +299,8 @@
     <div class="max-w-7xl mx-auto px-4 py-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
       <!-- Col 1: School Info -->
       <div class="sm:col-span-2">
-        <h4 class="text-white font-bold text-lg mb-2">Bhanu Bhakta Nepali Proceeding Secondary School</h4>
-        <p class="text-gold-500 text-sm italic mb-3">"Service Before Self"</p>
+        <h4 class="text-white font-bold text-lg mb-1">Bhanu Bhakta Nepali Proceeding Secondary School</h4>
+        <p class="text-gold-500 text-xs font-semibold mb-3">"Service Before Self" • Est. 1962 • Govt. Aided • UDISE: 17060206809</p>
         <p class="text-sm text-slate-400 leading-relaxed max-w-md">
           Providing holistic education from Nursery to Class X in Nongmensong, Shillong under the MBOSE curriculum.
         </p>
@@ -317,11 +330,11 @@
       </div>
     </div>
     <div class="bg-navy-950/60 py-4 px-4 text-center text-xs text-slate-400">
-      © <span id="year"></span> Bhanu Bhakta Nepali Proceeding Secondary School, Shillong. All Rights Reserved.
+      © <span id="year"></span> Bhanu Bhakta Nepali Proceeding Secondary School, Shillong (UDISE: 17060206809). All Rights Reserved.
     </div>
   </footer>
 
-  <!-- Frontend Logic: Mobile Menu + Dynamic Content Loader -->
+  <!-- Frontend Logic: Mobile Menu + Dynamic Content Loader + Identity Redirect -->
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
 
@@ -334,9 +347,9 @@
 
     // Default Fallback Data (Used until you add posts in /admin)
     const fallbackNotices = [
-      { title: "Term Examination Routine Released", date: "2026-11-02", category: "Exam", summary: "Download the latest examination schedule for Classes I to X from the Academics section." },
-      { title: "Parent-Teacher Meeting Notice", date: "2026-10-25", category: "PTM", summary: "All parents and guardians are cordially invited to attend the upcoming PTM during school hours." },
-      { title: "Annual Cultural & Bhanu Jayanti Celebration", date: "2026-10-10", category: "Event", summary: "Highlights and photographs from our recent school celebration have been uploaded to the Gallery." }
+      { title: "Term Examination Routine Released", date: "2026-11-04", category: "Exam & Results", summary: "Download the latest examination schedule for Nursery to Class X from the Academics section." },
+      { title: "Parent-Teacher Meeting Notice", date: "2026-10-28", category: "Parent-Teacher Meeting", summary: "All parents and guardians are cordially invited to attend the upcoming PTM during school hours." },
+      { title: "School Foundation & Bhanu Jayanti Celebration", date: "2026-10-15", category: "School Events", summary: "Highlights and photographs from our recent school celebration have been uploaded to the Gallery." }
     ];
 
     const fallbackGallery = [
@@ -398,6 +411,17 @@
     }
 
     loadHomeContent();
+
+    // Redirect staff invite/password-reset links to /admin/
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", user => {
+        if (!user) {
+          window.netlifyIdentity.on("login", () => {
+            document.location.href = "/admin/";
+          });
+        }
+      });
+    }
   </script>
 </body>
 </html>
