@@ -10,11 +10,6 @@ media_library:
 
 media_folder: "images"
 public_folder: "/images"
-  name: git-gateway
-  branch: main
-
-media_folder: "images"
-public_folder: "/images"
 
 collections:
   - name: "notices"
@@ -78,7 +73,6 @@ collections:
                 name: "category"
                 widget: "string"
                 default: "School Foundation & Bhanu Jayanti Events"
-                hint: "Default categories: School Foundation & Bhanu Jayanti Events, Annual Sports, National Celebrations, Teachers' Day & Children's Day, Student Programmes, Campus & Classroom Life"
               - label: "Year / Date"
                 name: "date"
                 widget: "string"
