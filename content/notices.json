@@ -26,6 +26,14 @@
       "eventDate": "Annual Celebration",
       "summary": "We extend our heartfelt gratitude to our Managing Committee, teachers, students, and parents for making our cultural celebration a memorable success. Photographs from the event are now available in the Photo Gallery.",
       "attachment": "gallery.html"
+    },
+    {
+      "important": true,
+      "title": "Test Notice: School Sports Practice Schedule",
+      "date": "2026-11-06",
+      "category": "School Events",
+      "eventDate": "Friday, 10:00 AM",
+      "summary": "This is a live test notice published directly from our new 24/7 staff content management system."
     }
   ]
 }
