@@ -8,7 +8,7 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- FontAwesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-  <!-- Netlify Identity Widget (Handles email invites & password resets) -->
+  <!-- Netlify Identity Widget -->
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
   <script>
     tailwind.config = {
@@ -31,13 +31,14 @@
   </script>
   <style>
     @keyframes ticker {
-      0% { transform: translateX(100%); }
+      0% { transform: translateX(40%); }
       100% { transform: translateX(-100%); }
     }
     .animate-ticker {
       display: inline-block;
       white-space: nowrap;
-      animation: ticker 50s linear infinite; /* Slower 50s speed for comfortable reading */
+      min-width: 100%;
+      animation: ticker 45s linear infinite;
     }
     .animate-ticker:hover {
       animation-play-state: paused;
@@ -74,17 +75,22 @@
     </div>
   </div>
 
-  <!-- School Header & Navigation -->
+  <!-- School Header & Navigation (Enlarged Logo: w-20 h-20 on mobile, w-24 h-24 on desktop) -->
   <header class="bg-white shadow-md sticky top-0 z-50">
-    <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center gap-3">
       <!-- School Brand -->
       <a href="index.html" class="flex items-center gap-3 sm:gap-4">
-        <img src="images/logo.png" alt="School Badge" onerror="this.src='https://placehold.co/80x80/1e3a8a/f59e0b?text=BBNPSS'" class="w-14 h-14 sm:w-16 sm:h-16 object-contain rounded-full border-2 border-gold-500 p-0.5" />
+        <img
+          src="images/logo.png"
+          alt="School Badge"
+          onerror="this.src='https://placehold.co/100x100/1e3a8a/f59e0b?text=BBNPSS'"
+          class="w-20 h-20 sm:w-24 sm:h-24 shrink-0 object-contain rounded-full border-2 border-gold-500 shadow-sm bg-white"
+        />
         <div>
-          <h1 class="text-base sm:text-xl md:text-2xl font-bold text-navy-900 leading-tight">
+          <h1 class="text-lg sm:text-xl md:text-2xl font-extrabold text-navy-900 leading-tight">
             Bhanu Bhakta Nepali Proceeding Sec. School
           </h1>
-          <p class="text-xs sm:text-sm font-semibold text-gold-600 italic tracking-wide">
+          <p class="text-xs sm:text-sm font-semibold text-gold-600 italic tracking-wide mt-0.5">
             "Service Before Self" • Est. 1962 • Govt. Aided • UDISE: 17060206809
           </p>
         </div>
@@ -96,7 +102,7 @@
       </button>
 
       <!-- Desktop Navigation -->
-      <nav class="hidden lg:flex items-center gap-1 font-medium text-sm">
+      <nav class="hidden lg:flex items-center gap-1 font-medium text-sm shrink-0">
         <a href="index.html" class="px-3 py-2 rounded-md bg-navy-800 text-white">Home</a>
         <a href="about.html" class="px-3 py-2 rounded-md text-navy-900 hover:bg-slate-100 transition">About & Staff</a>
         <a href="academics.html" class="px-3 py-2 rounded-md text-navy-900 hover:bg-slate-100 transition">Academics & PDFs</a>
@@ -117,16 +123,21 @@
     </nav>
   </header>
 
-  <!-- Live Notice Ticker (50s comfortable speed, pauses on hover) -->
-  <div class="bg-gold-500 text-navy-900 text-sm font-semibold flex items-center overflow-hidden border-b border-gold-600">
-    <div class="bg-navy-900 text-gold-500 px-4 py-2 z-10 flex items-center gap-2 shrink-0 uppercase tracking-wider text-xs sm:text-sm font-bold">
-      <i class="fa-solid fa-bullhorn"></i> Latest News
+  <!-- Expanded Live Notice Ticker Bar (Larger Area, Bigger Text & View All Link) -->
+  <div class="bg-gold-500 text-navy-900 flex items-stretch overflow-hidden border-y-2 border-gold-600 shadow-md">
+    <div class="bg-navy-900 text-gold-500 px-4 sm:px-6 py-3.5 sm:py-4 z-10 flex items-center gap-2.5 shrink-0 uppercase tracking-wider text-sm sm:text-base font-extrabold shadow-lg">
+      <i class="fa-solid fa-bullhorn text-lg animate-bounce"></i>
+      <span>Latest News</span>
     </div>
-    <div class="overflow-hidden w-full py-2">
-      <div id="notice-ticker" class="animate-ticker">
+    <a href="notices.html" class="overflow-hidden w-full py-3.5 sm:py-4 flex items-center hover:bg-gold-600/20 transition" title="Click to open full Noticeboard">
+      <div id="notice-ticker" class="animate-ticker text-base sm:text-lg font-bold tracking-wide">
         Welcome to Bhanu Bhakta Nepali Proceeding Secondary School, Nongmensong, Shillong (Est. 1962 • Govt. Aided • UDISE: 17060206809) • School Timings: 8:45 AM to 2:20 PM • Check the Academics page for latest Exam Routines and Syllabus PDFs.
       </div>
-    </div>
+    </a>
+    <a href="notices.html" class="hidden md:flex bg-navy-900 hover:bg-navy-800 text-white px-5 py-3.5 sm:py-4 z-10 items-center gap-1.5 shrink-0 text-xs sm:text-sm font-bold transition border-l border-navy-800">
+      <span>All Notices</span>
+      <i class="fa-solid fa-arrow-right text-gold-500"></i>
+    </a>
   </div>
 
   <!-- Hero Section -->
@@ -334,18 +345,16 @@
     </div>
   </footer>
 
-  <!-- Frontend Logic: Mobile Menu + Dynamic Content Loader + Identity Redirect -->
+  <!-- Frontend Logic -->
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Mobile Menu Toggle
     const menuBtn = document.getElementById('mobile-menu-btn');
     const mobileMenu = document.getElementById('mobile-menu');
     menuBtn.addEventListener('click', () => {
       mobileMenu.classList.toggle('hidden');
     });
 
-    // Default Fallback Data (Used until you add posts in /admin)
     const fallbackNotices = [
       { title: "Term Examination Routine Released", date: "2026-11-04", category: "Exam & Results", summary: "Download the latest examination schedule for Nursery to Class X from the Academics section." },
       { title: "Parent-Teacher Meeting Notice", date: "2026-10-28", category: "Parent-Teacher Meeting", summary: "All parents and guardians are cordially invited to attend the upcoming PTM during school hours." },
@@ -380,9 +389,9 @@
 
       // Render Ticker
       document.getElementById('notice-ticker').innerHTML = notices
-        .slice(0, 4)
-        .map(n => `★ [${n.date}] ${n.title}: ${n.summary}`)
-        .join(' &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; ');
+        .slice(0, 5)
+        .map(n => `📢 [${n.date}] ${n.title} — ${n.summary}`)
+        .join(' &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ');
 
       // Render Noticeboard List
       document.getElementById('home-notices-list').innerHTML = notices.slice(0, 3).map(n => `
@@ -412,7 +421,6 @@
 
     loadHomeContent();
 
-    // Redirect staff invite/password-reset links to /admin/
     if (window.netlifyIdentity) {
       window.netlifyIdentity.on("init", user => {
         if (!user) {
