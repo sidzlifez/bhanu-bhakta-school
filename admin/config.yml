@@ -91,6 +91,11 @@ collections:
         label: "Faculty & History Photos"
         file: "content/staff.json"
         fields:
+          - label: "Home Page Hero Banner Photo"
+            name: "heroBanner"
+            widget: "image"
+            required: false
+            hint: "Upload a landscape photo of your school building or assembly to display behind the main Home page title."
           - label: "Historic Campus Photo (Est. 1962)"
             name: "oldPhoto"
             widget: "image"
