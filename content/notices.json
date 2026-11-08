@@ -1,39 +1,22 @@
 {
   "items": [
     {
-      "title": "Annual / Selection Examination Routine Released (Nursery to Class X)",
-      "date": "2026-11-04",
+      "title": "Annual & Term Examination Routine Released",
+      "date": "2026-11-08",
       "category": "Exam & Results",
       "important": true,
-      "eventDate": "Starts November 2026",
-      "summary": "The official schedule for the upcoming terminal and selection examinations has been published. Parents and students can download the class-wise PDF routine from the Academics section or by clicking the circular button below.",
-      "attachment": "academics.html#routines"
-    },
-    {
-      "title": "Parent-Teacher Meeting (PTM) for Classes VI to X",
-      "date": "2026-10-28",
-      "category": "Parent-Teacher Meeting",
-      "important": false,
-      "eventDate": "8:45 AM – 1:30 PM",
-      "summary": "All parents and guardians of Upper Primary and Secondary students are cordially requested to attend the Parent-Teacher Meeting to review student attendance and academic progress prior to the final examinations.",
+      "eventDate": "Session 2026",
+      "summary": "Students and parents can view and download the latest examination schedules for Nursery to Class X on the Academics & PDFs page.",
       "attachment": ""
     },
     {
-      "title": "School Foundation Day & Bhanu Jayanti Cultural Programme Highlights",
-      "date": "2026-10-15",
-      "category": "School Events",
+      "title": "Parent-Teacher Meeting (PTM) Notice",
+      "date": "2026-11-01",
+      "category": "Parent-Teacher Meeting",
       "important": false,
-      "eventDate": "Annual Celebration",
-      "summary": "We extend our heartfelt gratitude to our Managing Committee, teachers, students, and parents for making our cultural celebration a memorable success. Photographs from the event are now available in the Photo Gallery.",
-      "attachment": "gallery.html"
-    },
-    {
-      "important": true,
-      "title": "Test Notice: School Sports Practice Schedule",
-      "date": "2026-11-06",
-      "category": "School Events",
-      "eventDate": "Friday, 10:00 AM",
-      "summary": "This is a live test notice published directly from our new 24/7 staff content management system."
+      "eventDate": "8:45 AM – 2:20 PM",
+      "summary": "All parents and guardians are cordially invited to attend the upcoming Parent-Teacher Meeting during school hours to review student progress.",
+      "attachment": ""
     }
   ]
 }
