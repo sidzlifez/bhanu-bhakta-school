@@ -209,6 +209,62 @@
       © <span id="year"></span> Bhanu Bhakta Nepali Proceeding Secondary School, Nongmensong, Shillong (Est. 1962 • UDISE: 17060206809). All Rights Reserved.
     </div>
   </footer>
+  </footer>
+
+  <!-- Automatic Cache-Buster for Decap CMS Images & JSON Data -->
+  <script>
+    (function () {
+      const cacheVersion = Date.now();
+
+      // 1. Bypass browser cache when loading content/*.json files
+      const originalFetch = window.fetch;
+      window.fetch = function (resource, init) {
+        if (typeof resource === 'string' && resource.includes('content/') && resource.endsWith('.json')) {
+          const sep = resource.includes('?') ? '&' : '?';
+          resource = resource + sep + 'v=' + cacheVersion;
+          init = Object.assign({}, init, { cache: 'no-store' });
+        }
+        return originalFetch.call(this, resource, init);
+      };
+
+      // 2. Append version timestamp to all local image files
+      function bustImageCache(img) {
+        const src = img.getAttribute('src');
+        if (!src || src.startsWith('data:') || src.startsWith('http') || src.includes('?v=')) return;
+        const sep = src.includes('?') ? '&' : '?';
+        img.setAttribute('src', src + sep + 'v=' + cacheVersion);
+      }
+
+      // Update static images already in the HTML
+      document.querySelectorAll('img').forEach(bustImageCache);
+
+      // Watch for new images AND src updates (like the Hero Banner)
+      const observer = new MutationObserver(function (mutations) {
+        mutations.forEach(function (mutation) {
+          if (mutation.type === 'attributes' && mutation.target.tagName === 'IMG') {
+            bustImageCache(mutation.target);
+          }
+          mutation.addedNodes.forEach(function (node) {
+            if (node.nodeType === 1) {
+              if (node.tagName === 'IMG') bustImageCache(node);
+              if (node.querySelectorAll) {
+                node.querySelectorAll('img').forEach(bustImageCache);
+              }
+            }
+          });
+        });
+      });
+
+      observer.observe(document.body, {
+        childList: true,
+        subtree: true,
+        attributes: true,
+        attributeFilter: ['src']
+      });
+    })();
+  </script>
+
+  <!-- Frontend Logic -->
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
