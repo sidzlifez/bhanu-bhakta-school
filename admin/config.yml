@@ -1,9 +1,12 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: sidzlifez/bhanu-bhakta-school
   branch: main
+  base_url: https://bhanu-bhakta-school.pages.dev
+  auth_endpoint: api/auth
 
-site_url: https://bhanu-bhakta-school.netlify.app
-display_url: https://bhanu-bhakta-school.netlify.app
+site_url: https://bhanu-bhakta-school.pages.dev
+display_url: https://bhanu-bhakta-school.pages.dev
 
 media_folder: "images"
 public_folder: "/images"
