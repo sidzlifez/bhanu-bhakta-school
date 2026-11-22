@@ -66,7 +66,7 @@ collections:
             widget: "list"
             summary: "{{fields.title}} ({{fields.date}})"
             fields:
-              - label: "Photo Title"
+              - label: "Album / Event Title"
                 name: "title"
                 widget: "string"
               - label: "Event Category (Type any category)"
@@ -76,14 +76,29 @@ collections:
               - label: "Year / Date"
                 name: "date"
                 widget: "string"
-              - label: "Photo Description"
+              - label: "Album Description"
                 name: "description"
                 widget: "text"
                 required: false
-              - label: "Photo Image"
+              - label: "Cover / Main Photo"
                 name: "image"
                 widget: "image"
-                hint: "Use JPG/WebP under 300 KB with a simple lowercase filename (no spaces)."
+                hint: "Main thumbnail photo shown on Homepage & Gallery. Use JPG/WebP under 300 KB (no spaces in filename)."
+              - label: "Additional Event Photos (Optional - Add Multiple)"
+                name: "photos"
+                label_singular: "Extra Photo"
+                widget: "list"
+                required: false
+                hint: "Click 'Add Extra Photo' to attach more photos to this event album. Visitors can click to zoom and swipe through all photos."
+                fields:
+                  - label: "Photo Image"
+                    name: "photo"
+                    widget: "image"
+                    hint: "Use JPG/WebP under 300 KB with a simple lowercase filename."
+                  - label: "Short Caption (Optional)"
+                    name: "caption"
+                    widget: "string"
+                    required: false
 
   - name: "staff"
     label: "About & Staff Directory"
