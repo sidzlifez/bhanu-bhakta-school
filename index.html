@@ -164,14 +164,28 @@
     </a>
   </div>
 
-  <!-- Hero Section with Dynamic Background Image from /admin -->
+  <!-- Hero Section with Instant Dynamic Background Image from /admin -->
   <section class="relative bg-navy-900 text-white py-16 sm:py-24 px-4 overflow-hidden">
     <img
       id="hero-bg-img"
-      src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=1600&q=80"
       alt="School Campus Background"
-      class="absolute inset-0 w-full h-full object-cover object-center opacity-35"
+      onload="this.classList.remove('opacity-0'); this.classList.add('opacity-35');"
+      onerror="if(!this.dataset.fallback){this.dataset.fallback='1'; this.src='https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=1600&q=80';}"
+      class="absolute inset-0 w-full h-full object-cover object-center opacity-0 transition-opacity duration-300"
     />
+    <script>
+      (function () {
+        const img = document.getElementById('hero-bg-img');
+        const savedBanner = localStorage.getItem('bb_hero_banner');
+        if (savedBanner) {
+          img.src = savedBanner;
+          if (img.complete && img.naturalWidth > 0) {
+            img.classList.remove('opacity-0');
+            img.classList.add('opacity-35');
+          }
+        }
+      })();
+    </script>
     <div class="absolute inset-0 bg-gradient-to-r from-navy-900/90 via-navy-900/70 to-navy-900/40"></div>
 
     <div class="max-w-7xl mx-auto relative z-10 text-center md:text-left flex flex-col md:flex-row items-center justify-between gap-8">
@@ -375,7 +389,6 @@
       © <span id="year"></span> Bhanu Bhakta Nepali Proceeding Secondary School, Shillong (UDISE: 17060206809). All Rights Reserved.
     </div>
   </footer>
-  </footer>
 
   <!-- Automatic Cache-Buster for Decap CMS Images & JSON Data -->
   <script>
@@ -396,7 +409,7 @@
       // 2. Append version timestamp to all local image files
       function bustImageCache(img) {
         const src = img.getAttribute('src');
-        if (!src || src.startsWith('data:') || src.startsWith('http') || src.includes('?v=')) return;
+        if (!src || src.startsWith('data:') || src.startsWith('http') || src.includes('v=')) return;
         const sep = src.includes('?') ? '&' : '?';
         img.setAttribute('src', src + sep + 'v=' + cacheVersion);
       }
@@ -431,8 +444,6 @@
   </script>
 
   <!-- Frontend Logic -->
-
-  <!-- Frontend Logic -->
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
 
@@ -458,31 +469,34 @@
       let notices = fallbackNotices;
       let gallery = fallbackGallery;
 
-      try {
-        const resNotices = await fetch('content/notices.json');
-        if (resNotices.ok) {
-          const data = await resNotices.json();
-          if (data.items && data.items.length) notices = data.items;
-        }
-      } catch (e) {}
+      const [noticesRes, galleryRes, staffRes] = await Promise.allSettled([
+        fetch('content/notices.json').then(r => r.ok ? r.json() : null),
+        fetch('content/gallery.json').then(r => r.ok ? r.json() : null),
+        fetch('content/staff.json').then(r => r.ok ? r.json() : null)
+      ]);
 
-      try {
-        const resGallery = await fetch('content/gallery.json');
-        if (resGallery.ok) {
-          const data = await resGallery.json();
-          if (data.albums && data.albums.length) gallery = data.albums;
-        }
-      } catch (e) {}
+      if (noticesRes.status === 'fulfilled' && noticesRes.value && noticesRes.value.items && noticesRes.value.items.length) {
+        notices = noticesRes.value.items;
+      }
 
-      try {
-        const resStaff = await fetch('content/staff.json');
-        if (resStaff.ok) {
-          const staffData = await resStaff.json();
-          if (staffData.heroBanner) {
-            document.getElementById('hero-bg-img').src = staffData.heroBanner;
-          }
+      if (galleryRes.status === 'fulfilled' && galleryRes.value && galleryRes.value.albums && galleryRes.value.albums.length) {
+        gallery = galleryRes.value.albums;
+      }
+
+      const heroImg = document.getElementById('hero-bg-img');
+      const fallbackHero = "https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=1600&q=80";
+
+      if (staffRes.status === 'fulfilled' && staffRes.value && staffRes.value.heroBanner) {
+        const newBanner = staffRes.value.heroBanner;
+        localStorage.setItem('bb_hero_banner', newBanner);
+        const currentSrc = heroImg.getAttribute('src') || '';
+        if (!currentSrc.startsWith(newBanner)) {
+          heroImg.removeAttribute('data-fallback');
+          heroImg.src = newBanner;
         }
-      } catch (e) {}
+      } else if (!heroImg.getAttribute('src')) {
+        heroImg.src = fallbackHero;
+      }
 
       // Render Ticker
       document.getElementById('notice-ticker').innerHTML = notices
@@ -528,49 +542,5 @@
       });
     }
   </script>
-    <!-- Automatic Cache-Buster for Decap CMS Images & JSON Data -->
-<script>
-  (function () {
-    const cacheVersion = Date.now();
-
-    // 1. Bypass browser cache when loading content/*.json files
-    const originalFetch = window.fetch;
-    window.fetch = function (resource, init) {
-      if (typeof resource === 'string' && resource.includes('content/') && resource.endsWith('.json')) {
-        const sep = resource.includes('?') ? '&' : '?';
-        resource = resource + sep + 'v=' + cacheVersion;
-        init = Object.assign({}, init, { cache: 'no-store' });
-      }
-      return originalFetch.call(this, resource, init);
-    };
-
-    // 2. Append version timestamp to all local image files
-    function bustImageCache(img) {
-      const src = img.getAttribute('src');
-      if (!src || src.startsWith('data:') || src.startsWith('http') || src.includes('?v=')) return;
-      const sep = src.includes('?') ? '&' : '?';
-      img.setAttribute('src', src + sep + 'v=' + cacheVersion);
-    }
-
-    // Update static images already in the HTML
-    document.querySelectorAll('img').forEach(bustImageCache);
-
-    // Watch for images rendered dynamically from JSON (Gallery, Staff, Notices)
-    const observer = new MutationObserver(function (mutations) {
-      mutations.forEach(function (mutation) {
-        mutation.addedNodes.forEach(function (node) {
-          if (node.nodeType === 1) {
-            if (node.tagName === 'IMG') bustImageCache(node);
-            if (node.querySelectorAll) {
-              node.querySelectorAll('img').forEach(bustImageCache);
-            }
-          }
-        });
-      });
-    });
-
-    observer.observe(document.body, { childList: true, subtree: true });
-  })();
-</script>
 </body>
 </html>
