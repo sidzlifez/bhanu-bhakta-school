@@ -2,6 +2,9 @@ backend:
   name: git-gateway
   branch: main
 
+site_url: https://bhanu-bhakta-school.netlify.app
+display_url: https://bhanu-bhakta-school.netlify.app
+
 media_folder: "images"
 public_folder: "/images"
 
@@ -16,6 +19,7 @@ collections:
           - label: "Notice Items"
             name: "items"
             widget: "list"
+            summary: "{{fields.title}} ({{fields.date}})"
             fields:
               - label: "Notice Title"
                 name: "title"
@@ -23,6 +27,7 @@ collections:
               - label: "Posting Date"
                 name: "date"
                 widget: "string"
+                hint: "Format: YYYY-MM-DD (e.g. 2026-11-22)"
               - label: "Category"
                 name: "category"
                 widget: "select"
@@ -59,6 +64,7 @@ collections:
           - label: "Photo Albums"
             name: "albums"
             widget: "list"
+            summary: "{{fields.title}} ({{fields.date}})"
             fields:
               - label: "Photo Title"
                 name: "title"
@@ -77,6 +83,7 @@ collections:
               - label: "Photo Image"
                 name: "image"
                 widget: "image"
+                hint: "Use JPG/WebP under 300 KB with a simple lowercase filename (no spaces)."
 
   - name: "staff"
     label: "About & Staff Directory"
@@ -89,17 +96,21 @@ collections:
             name: "heroBanner"
             widget: "image"
             required: false
+            hint: "Use landscape JPG/WebP under 300 KB (e.g. hero-campus.jpg)."
           - label: "Historic Campus Photo (Est. 1962)"
             name: "oldPhoto"
             widget: "image"
             required: false
+            hint: "Use JPG/WebP under 300 KB (e.g. old-campus.jpg)."
           - label: "Present Campus Photo"
             name: "newPhoto"
             widget: "image"
             required: false
+            hint: "Use JPG/WebP under 300 KB (e.g. new-campus.jpg)."
           - label: "Teaching Staff List"
             name: "teachers"
             widget: "list"
+            summary: "{{fields.name}} — {{fields.designation}}"
             fields:
               - label: "Full Name"
                 name: "name"
@@ -110,13 +121,16 @@ collections:
               - label: "Subject Taught"
                 name: "subject"
                 widget: "string"
+                required: false
               - label: "Teacher Photo"
                 name: "photo"
                 widget: "image"
                 required: false
+                hint: "Square photo in JPG/WebP under 150 KB."
           - label: "Managing Committee"
             name: "committee"
             widget: "list"
+            summary: "{{fields.name}} ({{fields.role}})"
             fields:
               - label: "Member Name"
                 name: "name"
@@ -135,6 +149,7 @@ collections:
           - label: "Documents List"
             name: "documents"
             widget: "list"
+            summary: "[{{fields.type}}] {{fields.title}}"
             fields:
               - label: "Wing"
                 name: "wing"
@@ -156,9 +171,11 @@ collections:
               - label: "Session / Year"
                 name: "updated"
                 widget: "string"
+                required: false
               - label: "PDF File Upload"
                 name: "file"
                 widget: "file"
+                required: false
 
   - name: "results"
     label: "Student Marksheets"
@@ -170,6 +187,7 @@ collections:
           - label: "Student Result Records"
             name: "results"
             widget: "list"
+            summary: "{{fields.className}} | Roll {{fields.roll}} — {{fields.name}}"
             fields:
               - label: "Class"
                 name: "className"
@@ -206,6 +224,7 @@ collections:
               - label: "Subjects & Marks"
                 name: "subjects"
                 widget: "list"
+                summary: "{{fields.name}}: {{fields.marksObtained}} / {{fields.fullMarks}}"
                 fields:
                   - label: "Subject Name"
                     name: "name"
@@ -213,6 +232,9 @@ collections:
                   - label: "Full Marks"
                     name: "fullMarks"
                     widget: "number"
+                    default: 100
+                    value_type: "float"
                   - label: "Marks Obtained"
                     name: "marksObtained"
                     widget: "number"
+                    value_type: "float"
