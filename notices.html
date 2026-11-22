@@ -7,6 +7,7 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
   <script>
+    window.__bbCacheVer = Date.now();
     tailwind.config = {
       theme: {
         extend: {
@@ -85,19 +86,20 @@
       © <span id="year"></span> Bhanu Bhakta Nepali Proceeding Secondary School, Nongmensong, Shillong (UDISE: 17060206809). All Rights Reserved.
     </div>
   </footer>
-  </footer>
 
   <!-- Automatic Cache-Buster for Decap CMS Images & JSON Data -->
   <script>
     (function () {
-      const cacheVersion = Date.now();
+      const cacheVersion = window.__bbCacheVer || Date.now();
 
       // 1. Bypass browser cache when loading content/*.json files
       const originalFetch = window.fetch;
       window.fetch = function (resource, init) {
-        if (typeof resource === 'string' && resource.includes('content/') && resource.endsWith('.json')) {
-          const sep = resource.includes('?') ? '&' : '?';
-          resource = resource + sep + 'v=' + cacheVersion;
+        if (typeof resource === 'string' && resource.includes('content/') && resource.includes('.json')) {
+          if (!resource.includes('?v=') && !resource.includes('&v=')) {
+            const sep = resource.includes('?') ? '&' : '?';
+            resource = resource + sep + 'v=' + cacheVersion;
+          }
           init = Object.assign({}, init, { cache: 'no-store' });
         }
         return originalFetch.call(this, resource, init);
@@ -106,15 +108,13 @@
       // 2. Append version timestamp to all local image files
       function bustImageCache(img) {
         const src = img.getAttribute('src');
-        if (!src || src.startsWith('data:') || src.startsWith('http') || src.includes('?v=')) return;
+        if (!src || src.startsWith('data:') || src.startsWith('http') || src.includes('?v=') || src.includes('&v=')) return;
         const sep = src.includes('?') ? '&' : '?';
         img.setAttribute('src', src + sep + 'v=' + cacheVersion);
       }
 
-      // Update static images already in the HTML
       document.querySelectorAll('img').forEach(bustImageCache);
 
-      // Watch for new images AND src updates (like the Hero Banner)
       const observer = new MutationObserver(function (mutations) {
         mutations.forEach(function (mutation) {
           if (mutation.type === 'attributes' && mutation.target.tagName === 'IMG') {
@@ -141,12 +141,19 @@
   </script>
 
   <!-- Frontend Logic -->
-
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
     document.getElementById('mobile-menu-btn').addEventListener('click', () => {
       document.getElementById('mobile-menu').classList.toggle('hidden');
     });
+
+    function bustLocalAsset(url) {
+      if (!url || url.startsWith('http') || url.startsWith('data:') || url.includes('?v=') || url.includes('&v=')) {
+        return url;
+      }
+      const sep = url.includes('?') ? '&' : '?';
+      return url + sep + 'v=' + (window.__bbCacheVer || Date.now());
+    }
 
     async function loadNotices() {
       let items = [
@@ -154,7 +161,7 @@
       ];
 
       try {
-        const res = await fetch('content/notices.json?t=' + Date.now());
+        const res = await fetch('content/notices.json');
         if (res.ok) {
           const data = await res.json();
           if (data.items && data.items.length) items = data.items;
@@ -162,20 +169,27 @@
       } catch (e) {}
 
       const container = document.getElementById('notices-container');
+      if (!items.length) {
+        container.innerHTML = `<p class="text-center text-slate-500 py-10">No school notices posted yet.</p>`;
+        return;
+      }
+
       container.innerHTML = items.map(n => {
         const hasAttachment = n.attachment && n.attachment.trim() !== '' && n.attachment.trim() !== '#';
+        const attachmentHref = hasAttachment ? bustLocalAsset(n.attachment.trim()) : '#';
+
         return `
           <div class="bg-white p-6 rounded-2xl shadow-sm border ${n.important ? 'border-l-4 border-l-gold-500 border-slate-200' : 'border-slate-200'}">
             <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
               <div class="flex items-center gap-2">
                 <span class="bg-navy-800 text-white text-xs font-bold px-2.5 py-0.5 rounded">${n.category || 'Notice'}</span>
-                ${n.important ? '<span class="bg-red-100 text-red-700 text-xs font-bold px-2 py-0.5 rounded">Important</span>' : ''}
+                ${n.important ? '<span class="bg-red-100 text-red-700 text-xs font-bold px-2.5 py-0.5 rounded">Important</span>' : ''}
               </div>
               <span class="text-xs font-semibold text-slate-500"><i class="fa-regular fa-calendar mr-1"></i> ${n.date || ''}</span>
             </div>
             <h3 class="text-lg font-bold text-navy-900">${n.title}</h3>
             <p class="text-sm text-slate-600 mt-2 leading-relaxed">${n.summary || ''}</p>
-            ${hasAttachment ? `<div class="mt-4"><a href="${n.attachment}" target="_blank" download class="inline-flex items-center gap-2 bg-navy-800 hover:bg-navy-900 text-white text-xs font-bold px-4 py-2 rounded-lg transition"><i class="fa-solid fa-file-pdf text-gold-500"></i> Download Circular / Attachment</a></div>` : ''}
+            ${hasAttachment ? `<div class="mt-4"><a href="${attachmentHref}" target="_blank" download class="inline-flex items-center gap-2 bg-navy-800 hover:bg-navy-900 text-white text-xs font-bold px-4 py-2 rounded-lg transition"><i class="fa-solid fa-file-pdf text-gold-500"></i> Download Circular / Attachment</a></div>` : ''}
           </div>
         `;
       }).join('');
