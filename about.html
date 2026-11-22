@@ -7,6 +7,7 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
   <script>
+    window.__bbCacheVer = Date.now();
     tailwind.config = {
       theme: {
         extend: {
@@ -91,14 +92,47 @@
       </div>
       <div class="grid sm:grid-cols-2 gap-4">
         <div class="bg-white p-3 rounded-2xl shadow-sm border border-slate-200">
-          <img id="old-campus-img" src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=600&q=80" alt="Historic Campus" class="w-full h-48 object-cover rounded-xl mb-2" />
+          <div class="w-full h-48 rounded-xl mb-2 bg-slate-100 overflow-hidden">
+            <img
+              id="old-campus-img"
+              alt="Historic Campus"
+              onload="this.classList.remove('opacity-0');"
+              onerror="if(!this.dataset.fallback){this.dataset.fallback='1'; this.src='https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=600&q=80';}"
+              class="w-full h-full object-cover opacity-0 transition-opacity duration-300"
+            />
+          </div>
           <p class="text-xs font-bold text-center text-navy-900">Historic School Heritage (Est. 1962)</p>
         </div>
         <div class="bg-white p-3 rounded-2xl shadow-sm border border-slate-200">
-          <img id="new-campus-img" src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=600&q=80" alt="Present Campus" class="w-full h-48 object-cover rounded-xl mb-2" />
+          <div class="w-full h-48 rounded-xl mb-2 bg-slate-100 overflow-hidden">
+            <img
+              id="new-campus-img"
+              alt="Present Campus"
+              onload="this.classList.remove('opacity-0');"
+              onerror="if(!this.dataset.fallback){this.dataset.fallback='1'; this.src='https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=600&q=80';}"
+              class="w-full h-full object-cover opacity-0 transition-opacity duration-300"
+            />
+          </div>
           <p class="text-xs font-bold text-center text-navy-900">Present School Campus</p>
         </div>
       </div>
+      <script>
+        (function () {
+          function applyInstantCampusPhoto(id, key) {
+            const img = document.getElementById(id);
+            const saved = localStorage.getItem(key);
+            if (!img || !saved) return;
+            const sep = saved.includes('?') ? '&' : '?';
+            const finalSrc = (saved.startsWith('http') || saved.startsWith('data:')) ? saved : saved + sep + 'v=' + window.__bbCacheVer;
+            img.src = finalSrc;
+            if (img.complete && img.naturalWidth > 0) {
+              img.classList.remove('opacity-0');
+            }
+          }
+          applyInstantCampusPhoto('old-campus-img', 'bb_old_campus_photo');
+          applyInstantCampusPhoto('new-campus-img', 'bb_new_campus_photo');
+        })();
+      </script>
     </section>
 
     <!-- Teaching Faculty Directory -->
@@ -125,19 +159,20 @@
       © <span id="year"></span> Bhanu Bhakta Nepali Proceeding Secondary School, Nongmensong, Shillong (UDISE: 17060206809). All Rights Reserved.
     </div>
   </footer>
-  </footer>
 
   <!-- Automatic Cache-Buster for Decap CMS Images & JSON Data -->
   <script>
     (function () {
-      const cacheVersion = Date.now();
+      const cacheVersion = window.__bbCacheVer || Date.now();
 
       // 1. Bypass browser cache when loading content/*.json files
       const originalFetch = window.fetch;
       window.fetch = function (resource, init) {
-        if (typeof resource === 'string' && resource.includes('content/') && resource.endsWith('.json')) {
-          const sep = resource.includes('?') ? '&' : '?';
-          resource = resource + sep + 'v=' + cacheVersion;
+        if (typeof resource === 'string' && resource.includes('content/') && resource.includes('.json')) {
+          if (!resource.includes('?v=') && !resource.includes('&v=')) {
+            const sep = resource.includes('?') ? '&' : '?';
+            resource = resource + sep + 'v=' + cacheVersion;
+          }
           init = Object.assign({}, init, { cache: 'no-store' });
         }
         return originalFetch.call(this, resource, init);
@@ -146,7 +181,7 @@
       // 2. Append version timestamp to all local image files
       function bustImageCache(img) {
         const src = img.getAttribute('src');
-        if (!src || src.startsWith('data:') || src.startsWith('http') || src.includes('?v=')) return;
+        if (!src || src.startsWith('data:') || src.startsWith('http') || src.includes('?v=') || src.includes('&v=')) return;
         const sep = src.includes('?') ? '&' : '?';
         img.setAttribute('src', src + sep + 'v=' + cacheVersion);
       }
@@ -154,7 +189,7 @@
       // Update static images already in the HTML
       document.querySelectorAll('img').forEach(bustImageCache);
 
-      // Watch for new images AND src updates (like the Hero Banner)
+      // Watch for new images AND src updates
       const observer = new MutationObserver(function (mutations) {
         mutations.forEach(function (mutation) {
           if (mutation.type === 'attributes' && mutation.target.tagName === 'IMG') {
@@ -180,6 +215,7 @@
     })();
   </script>
 
+  <!-- Frontend Logic -->
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
     document.getElementById('mobile-menu-btn').addEventListener('click', () => {
@@ -197,12 +233,36 @@
       };
 
       try {
-        const res = await fetch('content/staff.json?t=' + Date.now());
+        const res = await fetch('content/staff.json');
         if (res.ok) data = await res.json();
       } catch (e) {}
 
-      if (data.oldPhoto) document.getElementById('old-campus-img').src = data.oldPhoto;
-      if (data.newPhoto) document.getElementById('new-campus-img').src = data.newPhoto;
+      const fallbackOld = "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=600&q=80";
+      const fallbackNew = "https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=600&q=80";
+
+      const oldImg = document.getElementById('old-campus-img');
+      if (data.oldPhoto) {
+        const prevOld = localStorage.getItem('bb_old_campus_photo');
+        localStorage.setItem('bb_old_campus_photo', data.oldPhoto);
+        if (!oldImg.getAttribute('src') || prevOld !== data.oldPhoto) {
+          oldImg.removeAttribute('data-fallback');
+          oldImg.src = data.oldPhoto;
+        }
+      } else if (!oldImg.getAttribute('src')) {
+        oldImg.src = fallbackOld;
+      }
+
+      const newImg = document.getElementById('new-campus-img');
+      if (data.newPhoto) {
+        const prevNew = localStorage.getItem('bb_new_campus_photo');
+        localStorage.setItem('bb_new_campus_photo', data.newPhoto);
+        if (!newImg.getAttribute('src') || prevNew !== data.newPhoto) {
+          newImg.removeAttribute('data-fallback');
+          newImg.src = data.newPhoto;
+        }
+      } else if (!newImg.getAttribute('src')) {
+        newImg.src = fallbackNew;
+      }
 
       const tGrid = document.getElementById('teachers-grid');
       tGrid.innerHTML = (data.teachers || []).map(t => {
