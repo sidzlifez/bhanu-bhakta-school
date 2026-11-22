@@ -9,6 +9,7 @@
   <!-- FontAwesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
   <script>
+    window.__bbCacheVer = Date.now();
     tailwind.config = {
       theme: {
         extend: {
@@ -209,19 +210,20 @@
       © <span id="year"></span> Bhanu Bhakta Nepali Proceeding Secondary School, Nongmensong, Shillong (Est. 1962 • UDISE: 17060206809). All Rights Reserved.
     </div>
   </footer>
-  </footer>
 
   <!-- Automatic Cache-Buster for Decap CMS Images & JSON Data -->
   <script>
     (function () {
-      const cacheVersion = Date.now();
+      const cacheVersion = window.__bbCacheVer || Date.now();
 
       // 1. Bypass browser cache when loading content/*.json files
       const originalFetch = window.fetch;
       window.fetch = function (resource, init) {
-        if (typeof resource === 'string' && resource.includes('content/') && resource.endsWith('.json')) {
-          const sep = resource.includes('?') ? '&' : '?';
-          resource = resource + sep + 'v=' + cacheVersion;
+        if (typeof resource === 'string' && resource.includes('content/') && resource.includes('.json')) {
+          if (!resource.includes('?v=') && !resource.includes('&v=')) {
+            const sep = resource.includes('?') ? '&' : '?';
+            resource = resource + sep + 'v=' + cacheVersion;
+          }
           init = Object.assign({}, init, { cache: 'no-store' });
         }
         return originalFetch.call(this, resource, init);
@@ -230,15 +232,13 @@
       // 2. Append version timestamp to all local image files
       function bustImageCache(img) {
         const src = img.getAttribute('src');
-        if (!src || src.startsWith('data:') || src.startsWith('http') || src.includes('?v=')) return;
+        if (!src || src.startsWith('data:') || src.startsWith('http') || src.includes('?v=') || src.includes('&v=')) return;
         const sep = src.includes('?') ? '&' : '?';
         img.setAttribute('src', src + sep + 'v=' + cacheVersion);
       }
 
-      // Update static images already in the HTML
       document.querySelectorAll('img').forEach(bustImageCache);
 
-      // Watch for new images AND src updates (like the Hero Banner)
       const observer = new MutationObserver(function (mutations) {
         mutations.forEach(function (mutation) {
           if (mutation.type === 'attributes' && mutation.target.tagName === 'IMG') {
@@ -265,7 +265,6 @@
   </script>
 
   <!-- Frontend Logic -->
-
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
 
@@ -304,22 +303,27 @@
     let allDocs = fallbackDocs;
     let allResults = fallbackResults;
 
-    async function loadAcademicsData() {
-      try {
-        const resDocs = await fetch('content/academics.json');
-        if (resDocs.ok) {
-          const data = await resDocs.json();
-          if (data.documents && data.documents.length) allDocs = data.documents;
-        }
-      } catch (e) {}
+    function bustLocalAsset(url) {
+      if (!url || url.startsWith('http') || url.startsWith('data:') || url.includes('?v=') || url.includes('&v=')) {
+        return url;
+      }
+      const sep = url.includes('?') ? '&' : '?';
+      return url + sep + 'v=' + (window.__bbCacheVer || Date.now());
+    }
 
-      try {
-        const resResults = await fetch('content/results.json');
-        if (resResults.ok) {
-          const data = await resResults.json();
-          if (data.results && data.results.length) allResults = data.results;
-        }
-      } catch (e) {}
+    async function loadAcademicsData() {
+      const [docsRes, resultsRes] = await Promise.allSettled([
+        fetch('content/academics.json').then(r => r.ok ? r.json() : null),
+        fetch('content/results.json').then(r => r.ok ? r.json() : null)
+      ]);
+
+      if (docsRes.status === 'fulfilled' && docsRes.value && docsRes.value.documents && docsRes.value.documents.length) {
+        allDocs = docsRes.value.documents;
+      }
+
+      if (resultsRes.status === 'fulfilled' && resultsRes.value && resultsRes.value.results && resultsRes.value.results.length) {
+        allResults = resultsRes.value.results;
+      }
 
       renderDocs('all');
     }
@@ -336,10 +340,10 @@
       grid.innerHTML = filtered.map(doc => {
         const isRealFile = doc.file && doc.file.trim() !== '' && doc.file.trim() !== '#';
         const badgeColor = doc.type === 'Routine' ? 'bg-amber-100 text-amber-800' : 'bg-navy-800/10 text-navy-800';
+        const fileHref = isRealFile ? bustLocalAsset(doc.file.trim()) : '#';
 
-        // Only attach download link if an actual PDF file has been uploaded
         const actionButton = isRealFile
-          ? `<a href="${doc.file}" target="_blank" download class="mt-4 inline-flex items-center justify-center gap-2 w-full bg-navy-800 hover:bg-navy-900 text-white text-xs font-bold py-2.5 px-4 rounded-xl transition">
+          ? `<a href="${fileHref}" target="_blank" download class="mt-4 inline-flex items-center justify-center gap-2 w-full bg-navy-800 hover:bg-navy-900 text-white text-xs font-bold py-2.5 px-4 rounded-xl transition">
                <i class="fa-solid fa-file-pdf text-gold-500"></i> Download Official PDF
              </a>`
           : `<button type="button" onclick="alert('The PDF file for \\'${doc.title.replace(/'/g, "")}\\' has not been uploaded yet. School staff can upload the PDF file inside the /admin dashboard under Academics & Syllabus PDFs.')" class="mt-4 inline-flex items-center justify-center gap-2 w-full bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-300 text-xs font-bold py-2.5 px-4 rounded-xl transition">
