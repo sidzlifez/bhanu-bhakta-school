@@ -7,6 +7,7 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
   <script>
+    window.__bbCacheVer = Date.now();
     tailwind.config = {
       theme: {
         extend: {
@@ -85,19 +86,20 @@
       © <span id="year"></span> Bhanu Bhakta Nepali Proceeding Secondary School, Nongmensong, Shillong (UDISE: 17060206809). All Rights Reserved.
     </div>
   </footer>
-  </footer>
 
   <!-- Automatic Cache-Buster for Decap CMS Images & JSON Data -->
   <script>
     (function () {
-      const cacheVersion = Date.now();
+      const cacheVersion = window.__bbCacheVer || Date.now();
 
       // 1. Bypass browser cache when loading content/*.json files
       const originalFetch = window.fetch;
       window.fetch = function (resource, init) {
-        if (typeof resource === 'string' && resource.includes('content/') && resource.endsWith('.json')) {
-          const sep = resource.includes('?') ? '&' : '?';
-          resource = resource + sep + 'v=' + cacheVersion;
+        if (typeof resource === 'string' && resource.includes('content/') && resource.includes('.json')) {
+          if (!resource.includes('?v=') && !resource.includes('&v=')) {
+            const sep = resource.includes('?') ? '&' : '?';
+            resource = resource + sep + 'v=' + cacheVersion;
+          }
           init = Object.assign({}, init, { cache: 'no-store' });
         }
         return originalFetch.call(this, resource, init);
@@ -106,7 +108,7 @@
       // 2. Append version timestamp to all local image files
       function bustImageCache(img) {
         const src = img.getAttribute('src');
-        if (!src || src.startsWith('data:') || src.startsWith('http') || src.includes('?v=')) return;
+        if (!src || src.startsWith('data:') || src.startsWith('http') || src.includes('?v=') || src.includes('&v=')) return;
         const sep = src.includes('?') ? '&' : '?';
         img.setAttribute('src', src + sep + 'v=' + cacheVersion);
       }
@@ -114,7 +116,7 @@
       // Update static images already in the HTML
       document.querySelectorAll('img').forEach(bustImageCache);
 
-      // Watch for new images AND src updates (like the Hero Banner)
+      // Watch for new images AND src updates
       const observer = new MutationObserver(function (mutations) {
         mutations.forEach(function (mutation) {
           if (mutation.type === 'attributes' && mutation.target.tagName === 'IMG') {
@@ -141,7 +143,6 @@
   </script>
 
   <!-- Frontend Logic -->
-
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
     document.getElementById('mobile-menu-btn').addEventListener('click', () => {
@@ -151,7 +152,7 @@
     async function loadGallery() {
       let albums = [];
       try {
-        const res = await fetch('content/gallery.json?t=' + Date.now());
+        const res = await fetch('content/gallery.json');
         if (res.ok) {
           const data = await res.json();
           if (data.albums && data.albums.length) albums = data.albums;
@@ -159,6 +160,11 @@
       } catch (e) {}
 
       const grid = document.getElementById('gallery-grid');
+      if (!albums.length) {
+        grid.innerHTML = `<p class="col-span-full text-center text-slate-500 py-10">No event photos uploaded yet.</p>`;
+        return;
+      }
+
       grid.innerHTML = albums.map(a => `
         <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-200 flex flex-col">
           <div class="h-56 bg-slate-100 overflow-hidden">
