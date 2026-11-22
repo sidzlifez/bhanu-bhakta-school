@@ -47,6 +47,20 @@
       "title": "Red Cross Society foundation day Celebration",
       "date": "2024",
       "image": "/images/red-cross-society.jpg"
+    },
+    {
+      "category": "Rally on Say No to Tobacco covering area of school location",
+      "title": "Say No to Tobacco day rally",
+      "date": "2025",
+      "image": "/images/rally_no_tobacco3.jpg",
+      "photos": [
+        {
+          "photo": "/images/rally_no_tobacco1.jpg"
+        },
+        {
+          "photo": "/images/rally_no_tobacco1.jpg"
+        }
+      ]
     }
   ]
 }
