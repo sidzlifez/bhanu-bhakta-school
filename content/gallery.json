@@ -12,7 +12,7 @@
       "category": "Annual Sports",
       "date": "2026",
       "description": "House teams competing in track and field events followed by medal distribution.",
-      "image": "https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=800&q=80"
+      "image": "/images/sports_day.jpg"
     },
     {
       "title": "Independence Day Flag Hoisting & March Past",
@@ -59,6 +59,9 @@
         },
         {
           "photo": "/images/rally_no_tobacco1.jpg"
+        },
+        {
+          "photo": "/images/rally_no_tobacco2.jpg"
         }
       ]
     }
