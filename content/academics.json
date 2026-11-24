@@ -2,36 +2,8 @@
   "documents": [
     {
       "wing": "pre-primary",
-      "type": "Syllabus",
-      "title": "Nursery & KG Annual Activity & Learning Syllabus",
-      "updated": "2026",
-      "file": "#"
-    },
-    {
-      "wing": "pre-primary",
       "type": "Routine",
       "title": "Pre-Primary Terminal Assessment Schedule",
-      "updated": "2026",
-      "file": "#"
-    },
-    {
-      "wing": "primary",
-      "type": "Syllabus",
-      "title": "Classes I to V Complete MBOSE Syllabus PDF",
-      "updated": "2026",
-      "file": "#"
-    },
-    {
-      "wing": "primary",
-      "type": "Routine",
-      "title": "Primary Section Half-Yearly & Final Exam Routine",
-      "updated": "2026",
-      "file": "#"
-    },
-    {
-      "wing": "upper-primary",
-      "type": "Syllabus",
-      "title": "Classes VI to VIII Mathematics, Science & Humanities Syllabus",
       "updated": "2026",
       "file": "#"
     },
@@ -55,6 +27,12 @@
       "title": "Class X MBOSE Board Routine",
       "updated": "2026",
       "file": "/images/examination-schedule-december-2026.pdf"
+    },
+    {
+      "title": "[Routine] Lower Primary Terminal Examination Routine (I, II, III, IV, V)",
+      "wing": "primary",
+      "type": "Routine",
+      "updated": "2026"
     }
   ]
 }
