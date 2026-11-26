@@ -1,4 +1,5 @@
 {
+  "heroBanner": "/images/gemini_generated_image_ep5y3fep5y3fep5y.png",
   "oldPhoto": "/images/old-school-campus.jpg",
   "newPhoto": "",
   "teachers": [
@@ -12,7 +13,7 @@
       "name": "Lalit Thapa",
       "designation": "Senior Assistant Teacher",
       "subject": "Mathematics, Computer (Classes IV – X)",
-      "photo": "/images/myphoto.jpg"
+      "photo": "/images/profile.jpg"
     },
     {
       "name": "Binita Limbu",
