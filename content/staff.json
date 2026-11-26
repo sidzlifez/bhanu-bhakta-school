@@ -27,18 +27,5 @@
       "photo": ""
     }
   ],
-  "committee": [
-    {
-      "name": "Kunjan Lama",
-      "role": "Managing Committee President"
-    },
-    {
-      "name": "Bonita Chettri",
-      "role": "Managing Committee Secretary"
-    },
-    {
-      "name": "Kavita Thakuri",
-      "role": "Committee Member Teacher Representative"
-    }
-  ]
+  "committee": []
 }
